@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="808.0" prefWidth="1349.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.AdminControler">
+   <children>
+      <TabPane layoutX="3.0" layoutY="4.0" prefHeight="783.0" prefWidth="1283.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Pracownicy">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
+                     <children>
+                        <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
+                           <children>
+                              <TableView fx:id="workertable" prefHeight="778.0" prefWidth="904.0">
+                                <columns>
+                                  <TableColumn fx:id="idcolumn" prefWidth="85.59991455078125" text="ID" />
+                                  <TableColumn fx:id="fnamecolumn" prefWidth="224.80007934570312" text="Name" />
+                                    <TableColumn fx:id="lnamecolumn" prefWidth="193.5999755859375" text="Last Name" />
+                                    <TableColumn fx:id="emailcolumn" prefWidth="72.00006103515625" text="Email" />
+                                    <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="180.7999267578125" text="DOB" />
+                                    <TableColumn fx:id="idfcolumn" minWidth="0.0" prefWidth="138.4000244140625" text="ID_Firmy" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
+                           <children>
+                              <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
+                              <TextField fx:id="id" promptText="ID">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="fname" layoutX="10.0" layoutY="45.0" promptText="Name">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="lname" layoutX="10.0" layoutY="71.0" promptText="Last Name">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="email" layoutX="10.0" layoutY="96.0" promptText="Email">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="idf" promptText="ID firmy">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <DatePicker fx:id="dob" prefHeight="0.0" prefWidth="330.0">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </DatePicker>
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addWorker" prefHeight="0.0" prefWidth="330.0" text="Add">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="clear" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="load" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Firmy">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
+                     <children>
+                        <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
+                           <children>
+                              <TableView fx:id="firmatable" prefHeight="778.0" prefWidth="904.0">
+                                 <columns>
+                                    <TableColumn fx:id="idfirmacolumn" prefWidth="526.4000244140625" text="ID" />
+                                    <TableColumn fx:id="namefirmacolumn" prefWidth="376.00006103515625" text="Name" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
+                           <children>
+                              <Label prefHeight="43.0" prefWidth="249.0" text=" Dodaj firmę" />
+                              <TextField fx:id="idfirma" promptText="id firmy">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="namefirma" layoutX="10.0" layoutY="45.0" promptText="nazwa firmy">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button fx:id="addfirma" mnemonicParsing="false" onAction="#addWorker" prefHeight="0.0" prefWidth="330.0" text="Add">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="clearfirma" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="loadfirma" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Eventy">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
+                     <children>
+                        <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
+                           <children>
+                              <TableView fx:id="eventtable" prefHeight="778.0" prefWidth="904.0">
+                                 <columns>
+                                    <TableColumn fx:id="ideventcolumn" prefWidth="383.9999694824219" text="ID" />
+                                    <TableColumn fx:id="nameeventcolumn" prefWidth="337.60009765625" text="Name" />
+                                    <TableColumn fx:id="deventcolumn" prefWidth="181.59991455078125" text="Date" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
+                           <children>
+                              <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
+                              <TextField fx:id="idevent" promptText="ID">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="nameevent" layoutX="10.0" layoutY="45.0" promptText="Name">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <DatePicker fx:id="devent" />
+                              <Button fx:id="addevent" mnemonicParsing="false" onAction="#addevent" prefHeight="0.0" prefWidth="330.0" text="Add">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="clearevent" mnemonicParsing="false" onAction="#cleareventFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="loadevent" mnemonicParsing="false" onAction="#loadEventData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Logowanie">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
+                     <children>
+                        <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
+                           <children>
+                              <TableView fx:id="loginTable" onSort="#clearLoginFild" prefHeight="778.0" prefWidth="904.0">
+                                 <columns>
+                                    <TableColumn fx:id="userUsercolumn" prefWidth="85.59991455078125" text="username" />
+                                    <TableColumn fx:id="passUsercolumn" prefWidth="376.0000305175781" text="password" />
+                                    <TableColumn fx:id="divUsercolumn" prefWidth="441.5999755859375" text="division" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
+                           <children>
+                              <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
+                              <TextField fx:id="nameUser" promptText="username">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="passUser" layoutX="10.0" layoutY="45.0" promptText="password">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="divUser" layoutX="10.0" layoutY="71.0" promptText="Division">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button fx:id="addUser" mnemonicParsing="false" onAction="#addLogin" prefHeight="0.0" prefWidth="330.0" text="Add">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="clearUser" mnemonicParsing="false" onAction="#clearLoginFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="loadUser" mnemonicParsing="false" onAction="#loadLoginData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
