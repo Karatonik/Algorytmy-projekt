@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pracownik.WorkersControler">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Projekty">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="178.0" prefHeight="370.0" prefWidth="422.0">
+                           <children>
+                              <TableView prefHeight="370.0" prefWidth="424.0">
+                                <columns>
+                                  <TableColumn prefWidth="263.20001220703125" text="Nazwa" />
+                                  <TableColumn prefWidth="86.4000244140625" text="DeadLine" />
+                                    <TableColumn prefWidth="72.79998779296875" text="Status" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="wydarzenia">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="158.0" prefHeight="370.0" prefWidth="441.0">
+                           <children>
+                              <TableView prefHeight="370.0" prefWidth="464.0">
+                                <columns>
+                                  <TableColumn prefWidth="316.79998779296875" text="Wydarzenie" />
+                                  <TableColumn prefWidth="126.4000244140625" text="Data" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
