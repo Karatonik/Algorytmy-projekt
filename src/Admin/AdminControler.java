@@ -266,11 +266,48 @@ this.id.setText("");
     private TableView<FirmyData> firmatable;
     @FXML
     private TableColumn<FirmyData,String> idfirmacolumn;
+    @FXML
     private TableColumn<FirmyData,String> namefirmacolumn;
     private ObservableList<FirmyData> dataf;
 
     private final String sqlfirma="SELECT * FROM Firmy";
+    @FXML
+    private void loadFirmaData(ActionEvent event){
+        try {
+            Connection conn=dbConnection.getConnection();
+            this.dataf= FXCollections.observableArrayList();
+            ResultSet rs=conn.createStatement().executeQuery(sqlfirma);
+            while(rs.next()){
+                this.dataf.add(new FirmyData(rs.getString(1),rs.getString(2)));
+            }
+        }catch (SQLException e){
+            System.err.println("ERROR"+e);
+        }
+        this.idfirmacolumn.setCellValueFactory(new PropertyValueFactory("ID_Firmy"));
+        this.namefirmacolumn.setCellValueFactory(new PropertyValueFactory("Nazwa_Firmy"));
+        this.firmatable.setItems(null);
+        this.firmatable.setItems(this.dataf);
+    }
+    @FXML
+    private void addFirma(ActionEvent event){
+        String sqlInsertf="INSERT INTO Firmy(ID_Firmy,Nazwa_Firmy) VALUES (?,?) ";
+        try{
+            Connection conn=dbConnection.getConnection();
+            PreparedStatement ps=conn.prepareStatement(sqlInsertf);
+            ps.setString(1,this.idfirma.getText());
+            ps.setString(2,this.namefirma.getText());
 
+            ps.execute();
+            conn.close();
 
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private  void clearFirmaFild(ActionEvent event){
+        this.idfirma.setText("");
+        this.namefirma.setText("");
+    }
 
 }
