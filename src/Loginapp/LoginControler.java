@@ -70,7 +70,7 @@ public class LoginControler implements Initializable {
             }
             else
             {
-                this.dbstatus.setText("Wrong Creditials");
+                this.dbstatus.setText("Wrong Credentials");
             }
         }
         catch (Exception localException) { localException.getStackTrace();}
