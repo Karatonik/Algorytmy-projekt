@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import dbUtil.dbTransaction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -110,6 +112,7 @@ this.id.setText("");
 
     }
     //dbConnction
+    private dbTransaction dt;
     private dbConnection dc;
     //Events
 @FXML
@@ -290,7 +293,6 @@ this.id.setText("");
     }
     @FXML
     private void addFirmy(ActionEvent event){
-
         String sqlInsertf="INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
         try{
             Connection conn=dbConnection.getConnection();
@@ -308,4 +310,24 @@ this.id.setText("");
     private  void clearFirmaFild(ActionEvent event){
         this.namefirma.setText("");
     }
+    @FXML
+    private Button ok;
+    @FXML
+    private Button no;
+    @FXML
+    private Button start;
+
+    @FXML
+    private void startTrans(ActionEvent e){
+        dt.beginTransaction();
+    }
+    @FXML
+    private void comTrans(ActionEvent e){
+        dt.commit();
+    }
+    @FXML
+    private void rollTrans(ActionEvent e){
+        dt.rollback();
+    }
+
 }
