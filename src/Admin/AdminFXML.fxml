@@ -139,8 +139,9 @@
                               </Button>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="akceptuj zmian" />
-                                    <Button mnemonicParsing="false" text="odrzuć" />
+                                    <Button fx:id="ok" mnemonicParsing="false" onAction="#comTrans" text="akceptuj zmian" />
+                                    <Button fx:id="no" mnemonicParsing="false" onAction="#rollTrans" text="odrzuć" />
+                                    <Button fx:id="start" mnemonicParsing="false" onAction="#startTrans" text="zacznij tranzakcje" />
                                  </children>
                               </HBox>
                            </children>
