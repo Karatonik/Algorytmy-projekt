@@ -290,6 +290,7 @@ this.id.setText("");
     }
     @FXML
     private void addFirmy(ActionEvent event){
+
         String sqlInsertf="INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
         try{
             Connection conn=dbConnection.getConnection();
