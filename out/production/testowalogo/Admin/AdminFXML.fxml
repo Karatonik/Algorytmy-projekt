@@ -137,6 +137,13 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="ok" mnemonicParsing="false" onAction="#comTrans" text="akceptuj zmian" />
+                                    <Button fx:id="no" mnemonicParsing="false" onAction="#rollTrans" text="odrzuć" />
+                                    <Button fx:id="start" mnemonicParsing="false" onAction="#startTrans" text="zacznij tranzakcje" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>
