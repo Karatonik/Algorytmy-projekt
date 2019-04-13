@@ -1,5 +1,6 @@
 package Admin;
 
+import Loginapp.option;
 import dbUtil.dbConnection;
 import java.net.URL;
 import java.sql.Connection;
@@ -12,11 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class AdminControler implements Initializable {
@@ -60,6 +57,7 @@ public class AdminControler implements Initializable {
     private final String sql="SELECT * FROM Pracownik";
     public void initialize(URL url, ResourceBundle rb){
 this.dc=new dbConnection();
+this.combodiv.setItems(FXCollections.observableArrayList(option.values()));
     }
     @FXML
     private void loadWorkerData(ActionEvent event){
@@ -85,16 +83,15 @@ this.dc=new dbConnection();
     }
     @FXML
     private void addWorker(ActionEvent event){
-        String sqlInsert="INSERT INTO Pracownik(id,fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?,?) ";
+        String sqlInsert="INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?) ";
         try{
 Connection conn=dbConnection.getConnection();
             PreparedStatement ps=conn.prepareStatement(sqlInsert);
-            ps.setString(1,this.id.getText());
-            ps.setString(2,this.fname.getText());
-            ps.setString(3,this.lname.getText());
-            ps.setString(4,this.email.getText());
-            ps.setString(5,this.dob.getEditor().getText());
-            ps.setString(6,this.idf.getText());
+            ps.setString(1,this.fname.getText());
+            ps.setString(2,this.lname.getText());
+            ps.setString(3,this.email.getText());
+            ps.setString(4,this.dob.getEditor().getText());
+            ps.setString(5,this.idf.getText());
             ps.execute();
             conn.close();
 
@@ -160,13 +157,12 @@ this.id.setText("");
     }
     @FXML
     private void addevent(ActionEvent event){
-        String sqlInserte="INSERT INTO Event(ID_Event,name_Event,Date) VALUES (?,?,?) ";
+        String sqlInserte="INSERT INTO Event(name_Event,Date) VALUES (?,?) ";
         try{
             Connection conn=dbConnection.getConnection();
             PreparedStatement ps=conn.prepareStatement(sqlInserte);
-            ps.setString(1,this.idevent.getText());
-            ps.setString(2,this.nameevent.getText());
-            ps.setString(3,this.devent.getEditor().getText());
+            ps.setString(1,this.nameevent.getText());
+            ps.setString(2,this.devent.getEditor().getText());
 
             ps.execute();
             conn.close();
@@ -177,7 +173,6 @@ this.id.setText("");
     }
     @FXML
     private  void cleareventFild(ActionEvent event){
-        this.idevent.setText("");
         this.nameevent.setText("");
         this.devent.setValue(null);
 
@@ -196,6 +191,8 @@ this.id.setText("");
     private Button clearUser;
     @FXML
     private  Button loadUser;
+    @FXML
+    private ComboBox<option>combodiv;
     @FXML
     private TableView<LoginData> loginTable;
     @FXML
@@ -223,6 +220,7 @@ this.id.setText("");
         this.passUsercolumn.setCellValueFactory(new PropertyValueFactory("pass"));
         this.divUsercolumn.setCellValueFactory(new PropertyValueFactory("division"));
 
+
         this.loginTable.setItems(null);
         this.loginTable.setItems(this.datalog);
     }
@@ -234,7 +232,8 @@ this.id.setText("");
             PreparedStatement ps=conn.prepareStatement(sqlInsertl);
             ps.setString(1,this.nameUser.getText());
             ps.setString(2,this.passUser.getText());
-            ps.setString(3,this.divUser.getText());
+            //ps.setString(3,this.divUser.getText());
+            ps.setString(3,combodiv.getValue().toString());
 
             ps.execute();
             conn.close();
@@ -266,11 +265,46 @@ this.id.setText("");
     private TableView<FirmyData> firmatable;
     @FXML
     private TableColumn<FirmyData,String> idfirmacolumn;
+    @FXML
     private TableColumn<FirmyData,String> namefirmacolumn;
     private ObservableList<FirmyData> dataf;
 
-    private final String sqlfirma="SELECT * FROM Firmy";
+    private final String sqlfirma="SELECT * FROM Firma";//
+    @FXML
+    private void loadFirmaData(ActionEvent event){
+        try {
+            Connection conn=dbConnection.getConnection();
+            this.dataf= FXCollections.observableArrayList();
+            ResultSet rs=conn.createStatement().executeQuery(sqlfirma);
+            while(rs.next()){
+                this.dataf.add(new FirmyData(rs.getString(1),rs.getString(2)));
+            }
+        }catch (SQLException e){
+            System.err.println("ERROR"+e);
+        }
+        this.idfirmacolumn.setCellValueFactory(new PropertyValueFactory("ID_Firmy"));
+        this.namefirmacolumn.setCellValueFactory(new PropertyValueFactory("Nazwa_Firmy"));
 
+        this.firmatable.setItems(null);
+        this.firmatable.setItems(this.dataf);
+    }
+    @FXML
+    private void addFirmy(ActionEvent event){
+        String sqlInsertf="INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
+        try{
+            Connection conn=dbConnection.getConnection();
+            PreparedStatement ps=conn.prepareStatement(sqlInsertf);
+            ps.setString(1,this.namefirma.getText());
 
+            ps.execute();
+            conn.close();
 
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private  void clearFirmaFild(ActionEvent event){
+        this.namefirma.setText("");
+    }
 }

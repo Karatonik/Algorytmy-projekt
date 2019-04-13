@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -38,14 +39,6 @@
                         <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
                            <children>
                               <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
-                              <TextField fx:id="id" promptText="ID">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </VBox.margin>
-                              </TextField>
                               <TextField fx:id="fname" layoutX="10.0" layoutY="45.0" promptText="Name">
                                  <padding>
                                     <Insets left="50.0" />
@@ -121,14 +114,6 @@
                         <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
                            <children>
                               <Label prefHeight="43.0" prefWidth="249.0" text=" Dodaj firmę" />
-                              <TextField fx:id="idfirma" promptText="id firmy">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </VBox.margin>
-                              </TextField>
                               <TextField fx:id="namefirma" layoutX="10.0" layoutY="45.0" promptText="nazwa firmy">
                                  <padding>
                                     <Insets left="50.0" />
@@ -137,17 +122,17 @@
                                     <Insets bottom="15.0" left="15.0" right="15.0" />
                                  </VBox.margin>
                               </TextField>
-                              <Button fx:id="addfirma" mnemonicParsing="false" onAction="#addWorker" prefHeight="0.0" prefWidth="330.0" text="Add">
+                              <Button fx:id="addfirma" mnemonicParsing="false" onAction="#addFirmy" prefHeight="0.0" prefWidth="330.0" text="Add">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="clearfirma" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                              <Button fx:id="clearfirma" mnemonicParsing="false" onAction="#clearFirmaFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="loadfirma" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                              <Button fx:id="loadfirma" mnemonicParsing="false" onAction="#loadFirmaData" prefHeight="18.0" prefWidth="330.0" text="Load data">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -176,14 +161,6 @@
                         <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
                            <children>
                               <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
-                              <TextField fx:id="idevent" promptText="ID">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </VBox.margin>
-                              </TextField>
                               <TextField fx:id="nameevent" layoutX="10.0" layoutY="45.0" promptText="Name">
                                  <padding>
                                     <Insets left="50.0" />
@@ -248,14 +225,7 @@
                                     <Insets bottom="15.0" left="15.0" right="15.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="divUser" layoutX="10.0" layoutY="71.0" promptText="Division">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </VBox.margin>
-                              </TextField>
+                              <ComboBox fx:id="combodiv" prefWidth="150.0" promptText="Division" />
                               <Button fx:id="addUser" mnemonicParsing="false" onAction="#addLogin" prefHeight="0.0" prefWidth="330.0" text="Add">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
