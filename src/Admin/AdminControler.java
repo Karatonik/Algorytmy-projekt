@@ -1,25 +1,60 @@
 package Admin;
 
+import Loginapp.option;
 import dbUtil.dbConnection;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdminControler implements Initializable {
+public class AdminControler  implements Initializable {
+Connection conn;
+    public void initialize(URL url, ResourceBundle rb){
+        this.dc=new dbConnection();
+        this.combodiv.setItems(FXCollections.observableArrayList(option.values()));
+    }
+    public AdminControler(){
+        try {
+            conn=dbConnection.getConnection();
+            conn.setAutoCommit(false);
+        }catch (SQLException e){
+            System.err.println("ERROR"+e);
+
+    }
+    }
+    @FXML
+    private Button dconnect;
+    private boolean dng=false;
+    @FXML
+    private void disconnecting(ActionEvent a) {
+        if (dng){
+            try {
+                conn=dbConnection.getConnection();
+                conn.setAutoCommit(false);
+            }catch (SQLException e){
+                System.err.println("ERROR"+e);
+            }
+            dconnect.setText("Polaczono");
+dng=false;
+        }
+        else{
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.err.println("ERROR" + e);
+            }
+            dconnect.setText("rozłączone");
+            dng=true;
+
+        }
+    }
     //Pracownik
     @FXML
     private TextField id;
@@ -55,16 +90,11 @@ public class AdminControler implements Initializable {
     private TableColumn<PracownikData,String> dobcolumn;
     private ObservableList<PracownikData> data;
 
-
-
     private final String sql="SELECT * FROM Pracownik";
-    public void initialize(URL url, ResourceBundle rb){
-this.dc=new dbConnection();
-    }
+
     @FXML
     private void loadWorkerData(ActionEvent event){
         try {
-            Connection conn=dbConnection.getConnection();
             this.data= FXCollections.observableArrayList();
             ResultSet rs=conn.createStatement().executeQuery(sql);
             while(rs.next()){
@@ -79,25 +109,20 @@ this.dc=new dbConnection();
         this.emailcolumn.setCellValueFactory(new PropertyValueFactory("email"));
         this.dobcolumn.setCellValueFactory(new PropertyValueFactory("DOB"));
         this.idfcolumn.setCellValueFactory(new PropertyValueFactory("ID_Firmy"));
-
         this.workertable.setItems(null);
         this.workertable.setItems(this.data);
     }
     @FXML
     private void addWorker(ActionEvent event){
-        String sqlInsert="INSERT INTO Pracownik(id,fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?,?) ";
+        String sqlInsert="INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?) ";
         try{
-Connection conn=dbConnection.getConnection();
             PreparedStatement ps=conn.prepareStatement(sqlInsert);
-            ps.setString(1,this.id.getText());
-            ps.setString(2,this.fname.getText());
-            ps.setString(3,this.lname.getText());
-            ps.setString(4,this.email.getText());
-            ps.setString(5,this.dob.getEditor().getText());
-            ps.setString(6,this.idf.getText());
+            ps.setString(1,this.fname.getText());
+            ps.setString(2,this.lname.getText());
+            ps.setString(3,this.email.getText());
+            ps.setString(4,this.dob.getEditor().getText());
+            ps.setString(5,this.idf.getText());
             ps.execute();
-            conn.close();
-
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -113,6 +138,7 @@ this.id.setText("");
 
     }
     //dbConnction
+
     private dbConnection dc;
     //Events
 @FXML
@@ -142,7 +168,6 @@ this.id.setText("");
     @FXML
     private void loadEventData(ActionEvent event){
         try {
-            Connection conn=dbConnection.getConnection();
             this.dataev= FXCollections.observableArrayList();
             ResultSet rs=conn.createStatement().executeQuery(sqlev);
             while(rs.next()){
@@ -160,16 +185,13 @@ this.id.setText("");
     }
     @FXML
     private void addevent(ActionEvent event){
-        String sqlInserte="INSERT INTO Event(ID_Event,name_Event,Date) VALUES (?,?,?) ";
+        String sqlInserte="INSERT INTO Event(name_Event,Date) VALUES (?,?) ";
         try{
-            Connection conn=dbConnection.getConnection();
             PreparedStatement ps=conn.prepareStatement(sqlInserte);
-            ps.setString(1,this.idevent.getText());
-            ps.setString(2,this.nameevent.getText());
-            ps.setString(3,this.devent.getEditor().getText());
+            ps.setString(1,this.nameevent.getText());
+            ps.setString(2,this.devent.getEditor().getText());
 
             ps.execute();
-            conn.close();
 
         }catch (SQLException e){
             e.printStackTrace();
@@ -177,10 +199,8 @@ this.id.setText("");
     }
     @FXML
     private  void cleareventFild(ActionEvent event){
-        this.idevent.setText("");
         this.nameevent.setText("");
         this.devent.setValue(null);
-
     }
 
     //LOGIN
@@ -197,6 +217,8 @@ this.id.setText("");
     @FXML
     private  Button loadUser;
     @FXML
+    private ComboBox<option>combodiv;
+    @FXML
     private TableView<LoginData> loginTable;
     @FXML
     private TableColumn<LoginData,String> userUsercolumn;
@@ -210,7 +232,6 @@ this.id.setText("");
     @FXML
     private void loadLoginData(ActionEvent event){
         try {
-            Connection conn=dbConnection.getConnection();
             this.datalog= FXCollections.observableArrayList();
             ResultSet rs=conn.createStatement().executeQuery(sqlog);
             while(rs.next()){
@@ -222,7 +243,6 @@ this.id.setText("");
         this.userUsercolumn.setCellValueFactory(new PropertyValueFactory("username"));
         this.passUsercolumn.setCellValueFactory(new PropertyValueFactory("pass"));
         this.divUsercolumn.setCellValueFactory(new PropertyValueFactory("division"));
-
         this.loginTable.setItems(null);
         this.loginTable.setItems(this.datalog);
     }
@@ -230,15 +250,12 @@ this.id.setText("");
     private void addLogin(ActionEvent event){
         String sqlInsertl="INSERT INTO Login(username,pass,division) VALUES (?,?,?) ";
         try{
-            Connection conn=dbConnection.getConnection();
             PreparedStatement ps=conn.prepareStatement(sqlInsertl);
             ps.setString(1,this.nameUser.getText());
             ps.setString(2,this.passUser.getText());
-            ps.setString(3,this.divUser.getText());
-
+            //ps.setString(3,this.divUser.getText());
+            ps.setString(3,combodiv.getValue().toString());
             ps.execute();
-            conn.close();
-
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -252,6 +269,9 @@ this.id.setText("");
     }
 
     //Firmy
+    Savepoint savepoint;
+    @FXML
+    private Button savePoint;
     @FXML
     private TextField idfirma;
     @FXML
@@ -266,11 +286,84 @@ this.id.setText("");
     private TableView<FirmyData> firmatable;
     @FXML
     private TableColumn<FirmyData,String> idfirmacolumn;
+    @FXML
     private TableColumn<FirmyData,String> namefirmacolumn;
     private ObservableList<FirmyData> dataf;
 
-    private final String sqlfirma="SELECT * FROM Firmy";
+    private final String sqlfirma="SELECT * FROM Firma";//
+    @FXML
+    private void loadFirmaData(ActionEvent event){
+        try {
+            this.dataf= FXCollections.observableArrayList();
+            ResultSet rs=conn.createStatement().executeQuery(sqlfirma);
+            while(rs.next()){
+                this.dataf.add(new FirmyData(rs.getString(1),rs.getString(2)));
+            }
+        }catch (SQLException e){
+            System.err.println("ERROR"+e);
+        }
+        this.idfirmacolumn.setCellValueFactory(new PropertyValueFactory("ID_Firmy"));
+        this.namefirmacolumn.setCellValueFactory(new PropertyValueFactory("Nazwa_Firmy"));
 
+        this.firmatable.setItems(null);
+        this.firmatable.setItems(this.dataf);
+    }
+    @FXML
+    private void addFirmy(ActionEvent event){
+        String sqlInsertf="INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
+        try{
+            PreparedStatement ps=conn.prepareStatement(sqlInsertf);
+            ps.setString(1,this.namefirma.getText());
+            ps.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private  void clearFirmaFild(ActionEvent event){
+        this.namefirma.setText("");
+    }
+    //tranzakcja
+    private boolean sp=false;
+    @FXML
+    private Button ok;
+    @FXML
+    private Button no;
+    @FXML
+    private Button start;
+    @FXML
+    private void commit(ActionEvent a){
+        try {
+        conn.commit();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        sp=false;
+    }
+    @FXML
+    private void setPoint(ActionEvent a){
+            try {
+                savepoint = conn.setSavepoint();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            sp=true;
+        }
 
+    @FXML
+    private void rollback(ActionEvent a){
+        if(sp){
+        try {
+            conn.rollback(savepoint);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        }
+
+    }
 
 }
+
+
+
+
