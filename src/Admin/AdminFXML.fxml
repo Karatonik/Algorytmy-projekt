@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="808.0" prefWidth="1349.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.AdminControler">
    <children>
-      <TabPane layoutX="3.0" layoutY="4.0" prefHeight="783.0" prefWidth="1283.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="3.0" layoutY="4.0" prefHeight="715.0" prefWidth="1309.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Pracownicy">
             <content>
@@ -137,13 +137,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Button fx:id="ok" mnemonicParsing="false" onAction="#comTrans" text="akceptuj zmian" />
-                                    <Button fx:id="no" mnemonicParsing="false" onAction="#rollTrans" text="odrzuć" />
-                                    <Button fx:id="start" mnemonicParsing="false" onAction="#startTrans" text="zacznij tranzakcje" />
-                                 </children>
-                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
@@ -256,5 +250,13 @@
             </Tab>
         </tabs>
       </TabPane>
+      <HBox layoutX="-3.0" layoutY="713.0" prefHeight="100.0" prefWidth="1355.0">
+         <children>
+            <Button fx:id="ok" mnemonicParsing="false" onAction="#commit" text="commit" />
+            <Button fx:id="no" mnemonicParsing="false" onAction="#rollback" text="rollback" />
+            <Button fx:id="savePoint" mnemonicParsing="false" onAction="#setPoint" text="savepoint" />
+            <Button fx:id="dconnect" mnemonicParsing="false" onAction="#disconnecting" text="rozłącz" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
