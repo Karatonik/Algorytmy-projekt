@@ -80,9 +80,10 @@ public class WorkersControler implements Initializable {
     private TableColumn<EventsDataWorker,String> statusproj;
     private ObservableList<EventsDataWorker> datap;
     private ObservableList<EventsDataWorker> dataw;
+    private ObservableList<WorkersData> data;
     private final String sqlw="SELECT * FROM Event WHERE PW='W'";
     private final String sqlp="SELECT * FROM Event WHERE PW='P'";
-
+    private final String sql="SELECT * FROM Pracownik";
 @FXML
     private void reboot(ActionEvent event){
     try {
@@ -115,18 +116,25 @@ public class WorkersControler implements Initializable {
     this.workerWydtable.setItems(this.dataw);
 
 //lable dla pracownika
+    try {
+        this.data= FXCollections.observableArrayList();
+        ResultSet rs3=conn.createStatement().executeQuery(sql);
+        while(rs3.next()){
+            this.data.add(new WorkersData(rs3.getString(1),rs3.getString(2),rs3.getString(3),rs3.getString(4),rs3.getString(5),rs3.getString(6),rs3.getString(7),rs3.getString(8)));
+            this.id.setText(rs3.getString(1));
+            this.flname.setText(rs3.getString(2 +rs3.getString(3)));
+            this.email.setText(rs3.getString(4));
+            this.dob.setText(rs3.getString(5));
+            this.stan.setText(rs3.getString(6));
+            this.pesel.setText(rs3.getString(7));
+        }
+    }catch (SQLException e){
+        System.err.println("ERROR"+e);
+    }
 
 }
 
 }
-
-
-
-
-
-
-
-
 
 
 
