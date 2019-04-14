@@ -122,7 +122,7 @@ public class WorkersControler implements Initializable {
         while(rs3.next()){
             this.data.add(new WorkersData(rs3.getString(1),rs3.getString(2),rs3.getString(3),rs3.getString(4),rs3.getString(5),rs3.getString(6),rs3.getString(7),rs3.getString(8)));
             this.id.setText(rs3.getString(1));
-            this.flname.setText(rs3.getString(2 +rs3.getString(3)));
+            this.flname.setText(rs3.getString(2 )+rs3.getString(3));
             this.email.setText(rs3.getString(4));
             this.dob.setText(rs3.getString(5));
             this.stan.setText(rs3.getString(6));
