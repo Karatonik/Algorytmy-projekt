@@ -9,9 +9,10 @@ public class WorkerData{
     private final StringProperty lastName;
     private final StringProperty email;
     private final StringProperty DOB;
+    private final StringProperty ID_Firmy;
     private final StringProperty Stanowisko;
     private final StringProperty Pesel;
-    public WorkerData(String id,String firstName,String lastName,String email,String DOB,String Stan,String pesel) {
+    public WorkerData(String id,String firstName,String lastName,String email,String DOB,String ID_f,String Stan,String pesel) {
         this.ID_Pracownika=new SimpleStringProperty(id);
         this.firstName= new SimpleStringProperty(firstName);
         this.lastName=new SimpleStringProperty(lastName);
@@ -19,6 +20,7 @@ public class WorkerData{
         this.DOB=new SimpleStringProperty(DOB);
         this.Stanowisko=new SimpleStringProperty(Stan);
         this.Pesel=new SimpleStringProperty(pesel);
+        this.ID_Firmy=new SimpleStringProperty(ID_f);
     }
 
     public String getID_Pracownika() {
@@ -103,5 +105,17 @@ public class WorkerData{
 
     public void setPesel(String pesel) {
         this.Pesel.set(pesel);
+    }
+
+    public String getID_Firmy() {
+        return ID_Firmy.get();
+    }
+
+    public StringProperty ID_FirmyProperty() {
+        return ID_Firmy;
+    }
+
+    public void setID_Firmy(String ID_Firmy) {
+        this.ID_Firmy.set(ID_Firmy);
     }
 }
