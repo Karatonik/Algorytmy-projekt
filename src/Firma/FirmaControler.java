@@ -1,5 +1,4 @@
 package Firma;
-import Events.Events;
 import dbUtil.dbConnection;
 import java.net.URL;
 import java.sql.*;
@@ -15,18 +14,27 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static Loginapp.LoginControler.namef;
+
 public class FirmaControler implements Initializable  {
     public void initialize(URL url, ResourceBundle rb){
         this.dc=new dbConnection();
     }
         Connection conn;
+    int id_Firmy=0;
         public FirmaControler(){
             try {
                 conn=dbConnection.getConnection();
                 conn.setAutoCommit(false);
             }catch (SQLException e){
                 System.err.println("ERROR"+e);
-
+            }
+            try {           //Szuka po nazwie firmy numeru firmy :)
+                String sqlcheck = "SELECT ID_Firmy FROM Firma WHERE Nazwa_Firmy='" + namef + "';";
+                ResultSet rs = conn.createStatement().executeQuery(sqlcheck);
+                id_Firmy = rs.getInt(1);
+            }catch (SQLException e){
+                e.printStackTrace();
             }
         }
         //połączenie
@@ -72,7 +80,7 @@ public class FirmaControler implements Initializable  {
     @FXML
     private  TextField pesel;
     @FXML
-    private DatePicker dob;
+    private DatePicker dobp;
     @FXML
     private  Button addp;
     @FXML
@@ -108,7 +116,7 @@ public class FirmaControler implements Initializable  {
     @FXML
     private TextField nazwap;
     @FXML
-    private DatePicker dobp;
+    private DatePicker dobproj;
     @FXML
     private Button loadproj;
     @FXML
@@ -118,11 +126,11 @@ public class FirmaControler implements Initializable  {
     @FXML
     private TableView<EventsData> ProjektTable;
     @FXML
-    private TableColumn<Events,String> idprojcolumn;
+    private TableColumn<EventsData,String> idprojcolumn;
     @FXML
-    private TableColumn<Events,String> nameprojcolumn;
+    private TableColumn<EventsData,String> nameprojcolumn;
     @FXML
-    private TableColumn<Events,String> dobprojcolumn;
+    private TableColumn<EventsData,String> dobprojcolumn;
 //Wydarzenie
 @FXML
 private TextField nazwaw;
@@ -137,48 +145,130 @@ private TextField nazwaw;
     @FXML
     private TableView<EventsData> WydTable;
     @FXML
-    private TableColumn<Events,String> idwcolumn;
+    private TableColumn<EventsData,String> idwcolumn;
     @FXML
-    private TableColumn<Events,String> namewcolumn;
+    private TableColumn<EventsData,String> namewcolumn;
     @FXML
-    private TableColumn<Events,String> dobwcolumn;
-//metody pracownika
-private ObservableList<WorkerData> datap;
-    private final String sqlp="SELECT * FROM Pracownik";
+    private TableColumn<EventsData,String> dobwcolumn;
+//metody wydarzenia
+private ObservableList<EventsData> dataw;
+    private final String sqlw="SELECT * FROM Event WHERE PW='W'";
 @FXML
-private void loadWorkerData(ActionEvent event){
+private void loadWydData(ActionEvent event){
     try {
-        this.datap= FXCollections.observableArrayList();
-        ResultSet rs=conn.createStatement().executeQuery(sqlp);
+        this.dataw= FXCollections.observableArrayList();
+        ResultSet rs=conn.createStatement().executeQuery(sqlw);
         while(rs.next()){
-            this.datap.add(new WorkerData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+            this.dataw.add(new EventsData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
         }
     }catch (SQLException e){
         System.err.println("ERROR"+e);
     }
-    this.idcolumn.setCellValueFactory(new PropertyValueFactory("ID_Pracownika"));
-    this.namecolumn.setCellValueFactory(new PropertyValueFactory("firstName"));
-    this.lnamecolumn.setCellValueFactory(new PropertyValueFactory("lastName"));
-    this.emailcolumn.setCellValueFactory(new PropertyValueFactory("email"));
-    this.dobcolumn.setCellValueFactory(new PropertyValueFactory("DOB"));
-    this.dobcolumn.setCellValueFactory(new PropertyValueFactory("Stanowisko"));
-    this.peselcolumn.setCellValueFactory(new PropertyValueFactory("Pesel"));
-    this.workertable.setItems(null);
-    this.workertable.setItems(this.datap);
+    this.idwcolumn.setCellValueFactory(new PropertyValueFactory("ID_Event"));
+    this.namewcolumn.setCellValueFactory(new PropertyValueFactory("name_Event"));
+    this.dobwcolumn.setCellValueFactory(new PropertyValueFactory("Date"));
+    this.WydTable.setItems(null);
+    this.WydTable.setItems(this.dataw);
 }
     @FXML
-    private void addWorker(ActionEvent event){
-        String sqlInserte="INSERT INTO Pracownik(fname,lname,email,DOB,Stanowisko,Pesel) VALUES (?,?,?,?,?,?) ";
+    private void addWyd(ActionEvent event){
+
+        String sqlInsert="INSERT INTO Event(name_Event,Date,ID_Firmy,PW) VALUES (?,?,?,?) ";
         try{
-            PreparedStatement ps=conn.prepareStatement(sqlInserte);
+            PreparedStatement ps=conn.prepareStatement(sqlInsert);
+            ps.setString(1,this.nazwaw.getText());
+            ps.setString(2,this.dobw.getEditor().getText());
+            ps.setInt(3,id_Firmy);
+            ps.setString(4,"W");
+            ps.execute();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private  void clearWydFild(ActionEvent event){
+        this.nazwaw.setText("");
+        this.dobw.setValue(null);
+    }
+//metody rojektu
+private ObservableList<EventsData> dataproj;
+    private final String sqlproj="SELECT * FROM Event WHERE PW='P'";
+    @FXML
+    private void loadProjData(ActionEvent event){
+        try {
+            this.dataproj= FXCollections.observableArrayList();
+            ResultSet rs=conn.createStatement().executeQuery(sqlproj);
+            while(rs.next()){
+                this.dataproj.add(new EventsData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
+            }
+        }catch (SQLException e){
+            System.err.println("ERROR"+e);
+        }
+        this.idprojcolumn.setCellValueFactory(new PropertyValueFactory("ID_Event"));
+        this.nameprojcolumn.setCellValueFactory(new PropertyValueFactory("name_Event"));
+        this.dobprojcolumn.setCellValueFactory(new PropertyValueFactory("Date"));
+        this.ProjektTable.setItems(null);
+        this.ProjektTable.setItems(this.dataproj);
+    }
+    @FXML
+    private void addProj(ActionEvent event){
+
+        String sqlInsert="INSERT INTO Event(name_Event,Date,ID_Firmy,PW) VALUES (?,?,?,?) ";
+        try{
+            PreparedStatement ps=conn.prepareStatement(sqlInsert);
+            ps.setString(1,this.nazwap.getText());
+            ps.setString(2,this.dobproj.getEditor().getText());
+            ps.setInt(3,id_Firmy);
+            ps.setString(4,"P");
+            ps.execute();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private  void clearProjFild(ActionEvent event){
+        this.nazwap.setText("");
+        this.dobproj.setValue(null);
+    }
+    //metody pracownika
+    private ObservableList<WorkerData> datap;
+    private final String sqlp="SELECT * FROM Pracownik";
+    @FXML
+    private void loadWorkerData(ActionEvent event){
+        try {
+            this.datap= FXCollections.observableArrayList();
+            ResultSet rs=conn.createStatement().executeQuery(sqlp);
+            while(rs.next()){
+                this.datap.add(new WorkerData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8)));
+            }
+        }catch (SQLException e){
+            System.err.println("ERROR"+e);
+        }
+        this.idcolumn.setCellValueFactory(new PropertyValueFactory("ID_Pracownika"));
+        this.namecolumn.setCellValueFactory(new PropertyValueFactory("firstName"));
+        this.lnamecolumn.setCellValueFactory(new PropertyValueFactory("lastName"));
+        this.emailcolumn.setCellValueFactory(new PropertyValueFactory("email"));
+        this.dobcolumn.setCellValueFactory(new PropertyValueFactory("DOB"));
+        this.stancolumn.setCellValueFactory(new PropertyValueFactory("Stanowisko"));
+        this.peselcolumn.setCellValueFactory(new PropertyValueFactory("Pesel"));
+        this.workertable.setItems(null);
+        this.workertable.setItems(this.datap);
+    }
+    @FXML
+    private void addWorkers(ActionEvent event){
+
+        String sqlInsert="INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy,Stanowisko,Pesel) VALUES (?,?,?,?,?,?,?) ";
+        try{
+            PreparedStatement ps=conn.prepareStatement(sqlInsert);
             ps.setString(1,this.name.getText());
             ps.setString(2,this.lname.getText());
             ps.setString(3,this.email.getText());
-            ps.setString(6,this.dob.getEditor().getText());
-            ps.setString(5,this.Stan.getText());
-            ps.setString(4,this.pesel.getText());
-
-
+            ps.setString(4,this.dobp.getEditor().getText());
+            ps.setInt(5,id_Firmy);
+            ps.setString(6,this.Stan.getText());
+            ps.setString(7,this.pesel.getText());
             ps.execute();
 
         }catch (SQLException e){
@@ -192,16 +282,9 @@ private void loadWorkerData(ActionEvent event){
         this.email.setText("");
         this.Stan.setText("");
         this.pesel.setText("");
-        this.dob.setValue(null);
+        this.dobp.setValue(null);
     }
-
-
-
-
-
-
-
-
+//metody tranzakcji
     @FXML
     private void commit(ActionEvent a){
         try {

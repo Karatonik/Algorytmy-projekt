@@ -1,11 +1,9 @@
 package Admin;
-
 import Loginapp.option;
 import dbUtil.dbConnection;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

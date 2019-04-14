@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 
 public class LoginControler implements Initializable {
     LoginModel loginModel = new LoginModel();
+    public static String namef=" ";
     @FXML
     private Label dbstatus;
     @FXML
@@ -58,9 +59,12 @@ public class LoginControler implements Initializable {
                     case "Admin":
                         adminLogin();
                         break;
-                    case "Firma":
+                    case "Firma": {
+                        namef=username.getText();
                         firmaLogin();
+
                         break;
+                    }
                     case "Pracownik":
                         workerLogin();
                         break;
@@ -96,6 +100,7 @@ public class LoginControler implements Initializable {
         {
             e.printStackTrace();
         }
+
     }
     public void firmaLogin(){
         try{

@@ -1,20 +1,22 @@
-package Firma;
+package Pracownik;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class EventsData {
+public class EventsDataWorker {
     private final StringProperty ID_Event;
     private final StringProperty name_Event;
     private final StringProperty Date;
     private final StringProperty ID_Firmy;
     private final StringProperty pw;
-    public EventsData(String id,String naz,String dob,String fir,String pw){
+    private final StringProperty Status;
+    public EventsDataWorker(String id, String naz, String dob, String fir, String pw,String sta){
         this.ID_Event=new SimpleStringProperty(id);
         this.name_Event=new SimpleStringProperty(naz);
         this.Date=new SimpleStringProperty(dob);
         this.ID_Firmy=new SimpleStringProperty(fir);
         this.pw=new SimpleStringProperty(pw);
+        this.Status=new SimpleStringProperty(sta);
     }
 
     public String getID_Event() {
@@ -75,5 +77,17 @@ public class EventsData {
 
     public void setPw(String pw) {
         this.pw.set(pw);
+    }
+
+    public String getStatus() {
+        return Status.get();
+    }
+
+    public StringProperty statusProperty() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        this.Status.set(status);
     }
 }
