@@ -65,8 +65,10 @@ public class LoginControler implements Initializable {
 
                         break;
                     }
-                    case "Pracownik":
+                    case "Pracownik": {
+                        namef=username.getText();
                         workerLogin();
+                    }
                         break;
                 }
 
