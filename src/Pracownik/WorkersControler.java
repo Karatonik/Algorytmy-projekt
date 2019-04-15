@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import static Loginapp.LoginControler.namef;
+
 public class WorkersControler implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb){ this.dc=new dbConnection(); }
@@ -83,7 +86,7 @@ public class WorkersControler implements Initializable {
     private ObservableList<WorkersData> data;
     private final String sqlw="SELECT * FROM Event WHERE PW='W'";
     private final String sqlp="SELECT * FROM Event WHERE PW='P'";
-    private final String sql="SELECT * FROM Pracownik";
+    private final String sql="SELECT * FROM Pracownik WHERE  fname='"+namef+"';";
 @FXML
     private void reboot(ActionEvent event){
     try {
@@ -121,12 +124,12 @@ public class WorkersControler implements Initializable {
         ResultSet rs3=conn.createStatement().executeQuery(sql);
         while(rs3.next()){
             this.data.add(new WorkersData(rs3.getString(1),rs3.getString(2),rs3.getString(3),rs3.getString(4),rs3.getString(5),rs3.getString(6),rs3.getString(7),rs3.getString(8)));
-            this.id.setText(rs3.getString(1));
-            this.flname.setText(rs3.getString(2 )+rs3.getString(3));
-            this.email.setText(rs3.getString(4));
-            this.dob.setText(rs3.getString(5));
-            this.stan.setText(rs3.getString(6));
-            this.pesel.setText(rs3.getString(7));
+            this.id.setText("ID "+rs3.getString(1));
+            this.flname.setText("Imie i nazwisko "+rs3.getString(2 )+" "+rs3.getString(3));
+            this.email.setText("email "+rs3.getString(4));
+            this.dob.setText("data "+rs3.getString(5));
+            this.stan.setText("Stanowisko "+rs3.getString(6));
+            this.pesel.setText("Pesel "+rs3.getString(7));
         }
     }catch (SQLException e){
         System.err.println("ERROR"+e);
