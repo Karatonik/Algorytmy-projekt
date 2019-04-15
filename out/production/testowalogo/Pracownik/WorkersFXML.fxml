@@ -64,10 +64,5 @@
           </Tab>
         </tabs>
       </TabPane>
-      <HBox layoutY="331.0" prefHeight="30.0" prefWidth="600.0">
-         <children>
-            <Button fx:id="status" mnemonicParsing="false" onAction="#disconnecting" prefHeight="26.0" prefWidth="598.0" text="Status" />
-         </children>
-      </HBox>
    </children>
 </AnchorPane>
