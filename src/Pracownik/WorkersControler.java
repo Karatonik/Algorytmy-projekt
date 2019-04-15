@@ -17,41 +17,11 @@ public class WorkersControler implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb){ this.dc=new dbConnection(); }
     Connection conn;
-    public WorkersControler(){
-        try {
-            conn=dbConnection.getConnection();
-            conn.setAutoCommit(false);
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
-        }
-    }
+
     //połączenie
-    @FXML
-    private Button status;
+
     private dbConnection dc;
-    private boolean dng=false;
-    @FXML
-    private void disconnecting(ActionEvent a) {
-        if (dng){
-            try {
-                conn=dbConnection.getConnection();
-                conn.setAutoCommit(false);
-            }catch (SQLException e){
-                System.err.println("ERROR"+e);
-            }
-            status.setText("Polaczono");
-            dng=false;
-        }
-        else{
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                System.err.println("ERROR" + e);
-            }
-            status.setText("rozłączone");
-            dng=true;
-        }
-    }
+
     //przeciązenia
 @FXML
             private Label id;
@@ -90,6 +60,7 @@ public class WorkersControler implements Initializable {
 @FXML
     private void reboot(ActionEvent event){
     try {
+        conn=dbConnection.getConnection();
         this.datap= FXCollections.observableArrayList();
         ResultSet rs=conn.createStatement().executeQuery(sqlp);
         while(rs.next()){
