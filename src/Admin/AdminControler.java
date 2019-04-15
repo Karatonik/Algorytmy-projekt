@@ -4,19 +4,41 @@ import dbUtil.dbConnection;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import  javafx.scene.control.TableCell;
+import  javafx.scene.control.TableColumn;
+import  javafx.scene.control.TableColumn.CellEditEvent;
+import  javafx.scene.control.TableView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 
 public class AdminControler  implements Initializable {
 Connection conn;
     public void initialize(URL url, ResourceBundle rb){
         this.dc=new dbConnection();
         this.combodiv.setItems(FXCollections.observableArrayList(option.values()));
+        workertable.setEditable(true);
+        fnamecolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        lnamecolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        emailcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        idfcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
+
+
+        eventtable.setEditable(true);
+        loginTable.setEditable(true);
+        firmatable.setEditable(true);
     }
     public AdminControler(){
         try {
@@ -26,6 +48,9 @@ Connection conn;
             System.err.println("ERROR"+e);
 
     }
+
+
+
     }
     @FXML
     private Button dconnect;
@@ -89,7 +114,6 @@ dng=false;
     private ObservableList<PracownikData> data;
 
     private final String sql="SELECT * FROM Pracownik";
-
     @FXML
     private void loadWorkerData(ActionEvent event){
         try {
@@ -135,6 +159,7 @@ this.id.setText("");
         this.dob.setValue(null);
 
     }
+
     //dbConnction
 
     private dbConnection dc;
@@ -360,6 +385,25 @@ this.id.setText("");
 
     }
 
+    public void oneEditNameWorkerCell(CellEditEvent<PracownikData, String> pracownikDataStringCellEditEvent) {
+
+        this.fnamecolumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<PracownikData, String>, ObservableValue<String>>() {
+                                                 public ObservableValue<String> call(TableColumn.CellDataFeatures<PracownikData, String> p){
+                                                     p.getValue().setTest( p.getValue().getFirstName());
+                                                     String sqlInsert="UPDATE Pracownik(fname) values (?)  WHERE fname='?'";
+                                                     try{
+                                                         PreparedStatement ps=conn.prepareStatement(sqlInsert);
+                                                         ps.setString(1,"nowa wartość");
+                                                         ps.setString(2,p.getValue().getFirstName());
+                                                         ps.execute();
+                                                     }catch (SQLException e){
+                                                         e.printStackTrace();
+                                                     }
+                                                     return new SimpleStringProperty(p.getValue().getFirstName());
+                                                 }
+                                             });
+
+    }
 }
 
 
