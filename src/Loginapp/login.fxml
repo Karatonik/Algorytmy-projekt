@@ -7,16 +7,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Loginapp.LoginControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Loginapp.LoginControler">
    <children>
       <Label layoutX="14.0" layoutY="15.0" prefHeight="18.0" prefWidth="77.0" text="DB Status" />
       <Label fx:id="dbstatus" layoutX="92.0" layoutY="15.0" prefHeight="18.0" prefWidth="212.0" />
-      <TextField fx:id="username" layoutX="91.0" layoutY="40.0" prefHeight="26.0" prefWidth="195.0" promptText="Username" />
-      <Label layoutX="14.0" layoutY="44.0" text="UserName" />
-      <Label layoutX="14.0" layoutY="85.0" text="Password" />
-      <PasswordField fx:id="password" layoutX="91.0" layoutY="81.0" prefHeight="26.0" prefWidth="195.0" promptText="Password" />
-      <ComboBox fx:id="combobox" layoutX="92.0" layoutY="131.0" prefHeight="26.0" prefWidth="195.0" promptText="Sektor" />
-      <Button fx:id="loginbutton" layoutX="91.0" layoutY="175.0" mnemonicParsing="false" onAction="#Login" prefHeight="26.0" prefWidth="195.0" text="Login" />
+      <TextField fx:id="username" layoutX="91.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="Username" />
+      <Label layoutX="17.0" layoutY="47.0" text="UserName" />
+      <Label layoutX="21.0" layoutY="90.0" prefWidth="56.0" text="Password" />
+      <PasswordField fx:id="password" layoutX="91.0" layoutY="83.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="Password" />
+      <ComboBox fx:id="combobox" layoutX="91.0" layoutY="131.0" prefHeight="30.0" prefWidth="200.0" promptText="Sektor" />
+      <Button fx:id="loginbutton" layoutX="91.0" layoutY="175.0" mnemonicParsing="false" onAction="#Login" prefHeight="30.0" prefWidth="200.0" text="Login" />
       <Label fx:id="loginstatus" layoutX="14.0" layoutY="180.0" prefHeight="18.0" prefWidth="56.0" />
    </children>
 </AnchorPane>
