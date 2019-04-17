@@ -7,22 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pracownik.WorkersControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1371.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pracownik.WorkersControler">
    <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1.0" prefHeight="700.0" prefWidth="1371.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Projekty">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="411.0">
                      <children>
-                        <HBox layoutX="178.0" prefHeight="370.0" prefWidth="422.0">
+                        <HBox layoutX="-16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="0.0">
                            <children>
-                              <TableView prefHeight="370.0" prefWidth="424.0">
+                              <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1394.0">
                                 <columns>
-                                  <TableColumn prefWidth="263.20001220703125" text="Nazwa" />
-                                  <TableColumn prefWidth="86.4000244140625" text="DeadLine" />
-                                    <TableColumn prefWidth="72.79998779296875" text="Status" />
+                                  <TableColumn prefWidth="506.0" text="Nazwa" />
+                                  <TableColumn prefWidth="457.0" text="DeadLine" />
+                                    <TableColumn prefWidth="428.0" text="Status" />
                                 </columns>
                               </TableView>
                            </children>
@@ -31,16 +30,16 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="wydarzenia">
+          <Tab text="Wydarzenia">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="158.0" prefHeight="370.0" prefWidth="441.0">
+                        <HBox layoutX="1.0" prefHeight="672.0" prefWidth="1381.0">
                            <children>
-                              <TableView prefHeight="370.0" prefWidth="464.0">
+                              <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="1374.0">
                                 <columns>
-                                  <TableColumn prefWidth="316.79998779296875" text="Wydarzenie" />
-                                  <TableColumn prefWidth="126.4000244140625" text="Data" />
+                                  <TableColumn prefWidth="711.0" text="Wydarzenie" />
+                                  <TableColumn prefWidth="661.0" text="Data" />
                                 </columns>
                               </TableView>
                            </children>
