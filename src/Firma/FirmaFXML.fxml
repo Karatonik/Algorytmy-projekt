@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,153 +12,220 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Firma.FirmaControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1399.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Firma.FirmaControler">
    <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Pracownicy">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <HBox layoutX="200.0" prefHeight="370.0" prefWidth="400.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="1096.0">
+         <children>
+            <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1383.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Pracownicy">
+                  <content>
+                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="267.0">
                            <children>
-                              <TableView prefHeight="370.0" prefWidth="402.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="Imie" />
-                                  <TableColumn prefWidth="105.60003662109375" text="Nazwisko" />
-                                    <TableColumn prefWidth="133.5999755859375" text="Pesel" />
-                                    <TableColumn prefWidth="86.4000244140625" text="Stanowisko" />
-                                </columns>
-                              </TableView>
+                              <HBox layoutX="274.0" layoutY="-6.0" prefHeight="682.0" prefWidth="1049.0">
+                                 <children>
+                                    <TableView fx:id="workertable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1126.0">
+                                      <columns>
+                                        <TableColumn fx:id="idcolumn" prefWidth="89.0" text="ID_Pracownika" />
+                                        <TableColumn fx:id="namecolumn" minWidth="0.0" prefWidth="133.0" text="Imie" />
+                                          <TableColumn fx:id="lnamecolumn" prefWidth="147.0" text="Nazwisko" />
+                                          <TableColumn fx:id="emailcolumn" prefWidth="165.0" text="Email" />
+                                          <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="154.0" text="DOB" />
+                                          <TableColumn fx:id="stancolumn" minWidth="0.0" prefWidth="180.0" text="Stanowisko" />
+                                          <TableColumn fx:id="peselcolumn" prefWidth="295.0" text="Pesel" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Imie">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="lname" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Nazwisko">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="email" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="email">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="Stan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Stanowisko">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="pesel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Pesel">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <DatePicker fx:id="dob" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Select a date">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </DatePicker>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="addp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addWorker" prefHeight="30.0" prefWidth="255.0" text="Add">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Button fx:id="clearp" layoutX="8.0" layoutY="495.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="30.0" prefWidth="257.0" text="Clear" />
+                              <Button fx:id="loadp" layoutX="9.0" layoutY="438.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="30.0" prefWidth="255.0" text="Load" />
                            </children>
-                        </HBox>
-                        <VBox prefHeight="370.0" prefWidth="190.0">
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Projekty">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                     <content>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="828.0" prefWidth="1363.0">
                            <children>
-                              <TextField promptText="imie">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField promptText="Nazwisko">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField promptText="Pesel">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField promptText="Stanowisko">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <ComboBox prefWidth="150.0" promptText="Akcja">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </padding>
-                              </ComboBox>
+                              <HBox layoutX="281.0" prefHeight="648.0" prefWidth="1117.0">
+                                 <children>
+                                    <TableView fx:id="ProjektTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1126.0">
+                                       <columns>
+                                          <TableColumn fx:id="idprojcolumn" maxWidth="303.0" minWidth="-Infinity" prefWidth="303.0" text="ID_Event" />
+                                          <TableColumn fx:id="nameprojcolumn" prefWidth="462.0" text="Nazwa" />
+                                          <TableColumn fx:id="dobprojcolumn" prefWidth="432.0" text="Data" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="141.0">
+                                 <children>
+                                    <TextField fx:id="nazwap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Nazwa">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="26.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <DatePicker fx:id="dobp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Select a date">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </DatePicker>
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="51.0" prefWidth="281.0">
+                                       <children>
+                                          <Button fx:id="addproj" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="255.0" text="Add">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="loadproj" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="255.0" text="Load">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="clearproj" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="255.0" text="Clear">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Projekty">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <HBox layoutX="200.0" prefHeight="370.0" prefWidth="400.0">
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                  <Tab text="Wydarzenie">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
                            <children>
-                              <TableView prefHeight="370.0" prefWidth="402.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Imie" />
-                                    <TableColumn prefWidth="105.60003662109375" text="Nazwisko" />
-                                    <TableColumn prefWidth="133.5999755859375" text="Pesel" />
-                                    <TableColumn prefWidth="86.4000244140625" text="Stanowisko" />
-                                 </columns>
-                              </TableView>
+                              <HBox layoutX="278.0" prefHeight="647.0" prefWidth="1106.0">
+                                 <children>
+                                    <TableView fx:id="WydTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1105.0">
+                                       <columns>
+                                          <TableColumn fx:id="idwcolumn" prefWidth="353.0" text="ID_Event" />
+                                          <TableColumn fx:id="namewcolumn" prefWidth="471.0" text="Nazwa" />
+                                          <TableColumn fx:id="dobwcolumn" prefWidth="279.0" text="Data" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="278.0">
+                                 <children>
+                                    <TextField fx:id="nazwaw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Nazwa">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="26.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <DatePicker fx:id="dobw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="255.0" promptText="Select a date">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </DatePicker>
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="51.0" prefWidth="281.0">
+                                       <children>
+                                          <Button fx:id="addw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="255.0" text="Add">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <Button fx:id="loadw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="255.0" text="Load">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="clearw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="255.0" text="Clear">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
                            </children>
-                        </HBox>
-                        <VBox prefHeight="370.0" prefWidth="190.0">
-                           <children>
-                              <TextField promptText="imie">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField promptText="Nazwisko">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField promptText="Pesel">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <TextField promptText="Stanowisko">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
-                                 </padding>
-                              </TextField>
-                              <ComboBox prefWidth="150.0" promptText="Akcja">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </padding>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-          </Tab>
-            <Tab text="Wydarzenie">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Wsółpraca">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+      <HBox layoutY="563.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="1377.0">
+         <children>
+            <Button fx:id="commit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commit" prefHeight="30.0" prefWidth="340.0" text="Commit">
+               <HBox.margin>
+                  <Insets top="114.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="rollback" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rollback" prefHeight="30.0" prefWidth="340.0" text="Rollback">
+               <HBox.margin>
+                  <Insets top="114.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="setPoint" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPoint" prefHeight="30.0" prefWidth="340.0" text="SetPoint">
+               <HBox.margin>
+                  <Insets top="114.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="status" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#disconnecting" prefHeight="30.0" prefWidth="379.0" text="Status">
+               <HBox.margin>
+                  <Insets top="114.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="100.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>
