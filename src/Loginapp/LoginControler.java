@@ -1,5 +1,7 @@
 package Loginapp;
+
 import Admin.AdminControler;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +26,7 @@ import javafx.stage.Stage;
 
 public class LoginControler implements Initializable {
     LoginModel loginModel = new LoginModel();
-    public static String namef=" ";
+    public static String namef = " ";
     @FXML
     private Label dbstatus;
     @FXML
@@ -36,9 +38,8 @@ public class LoginControler implements Initializable {
     @FXML
     private ComboBox<option> combobox;
 
-    public void initialize(URL url, ResourceBundle rb)
-    {
-        if (this.loginModel.isDatabaseConnected()){
+    public void initialize(URL url, ResourceBundle rb) {
+        if (this.loginModel.isDatabaseConnected()) {
             this.dbstatus.setText("Connected");
         } else {
             this.dbstatus.setText("Not Connected");
@@ -47,49 +48,43 @@ public class LoginControler implements Initializable {
     }
 
     @FXML
-    public void Login(ActionEvent event)
-    {
-        try
-        {
-            if (this.loginModel.islogin(this.username.getText(), this.password.getText(), ((option)this.combobox.getValue()).toString()))
-            {
-                Stage stage = (Stage)this.loginbutton.getScene().getWindow();
+    public void Login(ActionEvent event) {
+        try {
+            if (this.loginModel.islogin(this.username.getText(), this.password.getText(), ((option) this.combobox.getValue()).toString())) {
+                Stage stage = (Stage) this.loginbutton.getScene().getWindow();
                 stage.close();
-                switch (((option)this.combobox.getValue()).toString()) {
+                switch (((option) this.combobox.getValue()).toString()) {
                     case "Admin":
                         adminLogin();
                         break;
                     case "Firma": {
-                        namef=username.getText();
+                        namef = username.getText();
                         firmaLogin();
 
                         break;
                     }
                     case "Pracownik": {
-                        namef=username.getText();
+                        namef = username.getText();
                         workerLogin();
                     }
-                        break;
+                    break;
                 }
 
-            }
-            else
-            {
+            } else {
                 this.dbstatus.setText("Wrong Creditials");
             }
+        } catch (Exception localException) {
+            localException.getStackTrace();
         }
-        catch (Exception localException) { localException.getStackTrace();}
     }
 
 
-    public void adminLogin()
-    {
-        try
-        {
+    public void adminLogin() {
+        try {
             Stage adminStage = new Stage();
             FXMLLoader adminLoader = new FXMLLoader();
             Pane root = (Pane) adminLoader.load(getClass().getResource("/Admin/AdminFXML.fxml").openStream());
-            AdminControler adminControler = (AdminControler)adminLoader.getController();
+            AdminControler adminControler = (AdminControler) adminLoader.getController();
 
             Scene adminscene = new Scene(root);
 
@@ -97,33 +92,32 @@ public class LoginControler implements Initializable {
             adminStage.setTitle("Admin Dashboard");
             adminStage.setResizable(false);
             adminStage.show();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    public void firmaLogin(){
-        try{
-        Stage firmaStage = new Stage();
-        FXMLLoader firmaLoader = new FXMLLoader();
-        Pane root = (Pane) firmaLoader.load(getClass().getResource("/Firma/FirmaFXML.fxml").openStream());
-        FirmaControler firmaControler = (FirmaControler) firmaLoader.getController();
 
-        Scene firmascene = new Scene(root);
+    public void firmaLogin() {
+        try {
+            Stage firmaStage = new Stage();
+            FXMLLoader firmaLoader = new FXMLLoader();
+            Pane root = (Pane) firmaLoader.load(getClass().getResource("/Firma/FirmaFXML.fxml").openStream());
+            FirmaControler firmaControler = (FirmaControler) firmaLoader.getController();
 
-        firmaStage.setScene(firmascene);
-        firmaStage.setTitle("Firma Dashboard");
-        firmaStage.setResizable(false);
-        firmaStage.show();
-    }catch (IOException e)
-        {
+            Scene firmascene = new Scene(root);
+
+            firmaStage.setScene(firmascene);
+            firmaStage.setTitle("Firma Dashboard");
+            firmaStage.setResizable(false);
+            firmaStage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void workerLogin(){
-        try{
+
+    public void workerLogin() {
+        try {
             Stage workerStage = new Stage();
             FXMLLoader workerLoader = new FXMLLoader();
             Pane root = (Pane) workerLoader.load(getClass().getResource("/Pracownik/WorkersFXML.fxml").openStream());
@@ -133,10 +127,9 @@ public class LoginControler implements Initializable {
 
             workerStage.setScene(workerscene);
             workerStage.setTitle("Pracownik");
-           workerStage.setResizable(false);
+            workerStage.setResizable(false);
             workerStage.show();
-        }catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
