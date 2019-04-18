@@ -3,6 +3,8 @@ package Pracownik;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -20,8 +22,6 @@ import java.util.stream.Collectors;
 import static Loginapp.LoginControler.namef;
 
 public class WorkersControler implements Initializable {
-
-
     //wyszukiwarka
     public static List<EventsDataWorker> filteredProjList, filteredWydList = new ArrayList<>();
     private final String sql = "SELECT * FROM Pracownik WHERE  fname='" + namef + "';";
@@ -29,6 +29,9 @@ public class WorkersControler implements Initializable {
     private final String sqlp = "SELECT * FROM Event WHERE PW='P'";
     //połączenie
     Connection conn;
+    //srotowanie
+    @FXML
+    private TextField filterFieldWyd, filterFieldProj;
     @FXML
     private TextField searchProj, searchWyd;
     private dbConnection dc;
@@ -48,6 +51,8 @@ public class WorkersControler implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         reboot();
         this.dc = new dbConnection();
+        filtrProj();
+        filtrWyd();
     }
 
     //wczytanie danych z wydarzeń i projektów
@@ -146,6 +151,66 @@ public class WorkersControler implements Initializable {
         }
     }
 
+    public void filtrWyd() {
+        FilteredList<EventsDataWorker> filteredData = new FilteredList<>(dataw, p -> true);
+        filterFieldWyd.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getName_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<EventsDataWorker> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(workerWydtable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        workerWydtable.setItems(sortedData);
+
+    }
+
+    public void filtrProj() {
+        FilteredList<EventsDataWorker> filteredData = new FilteredList<>(datap, p -> true);
+        filterFieldProj.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getName_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<EventsDataWorker> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(workerProjtable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        workerProjtable.setItems(sortedData);
+    }
 
 }
 
