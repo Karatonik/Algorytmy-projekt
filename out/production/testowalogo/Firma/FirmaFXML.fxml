@@ -64,6 +64,7 @@
                                           <Button fx:id="clearp" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="26.0" prefWidth="66.0" text="Clear" />
                                        </children>
                                     </HBox>
+                                    <TextField fx:id="searchWorker" onAction="#SearchWorkers" promptText="Wyszukaj" />
                                  </children>
                               </VBox>
                            </children>
@@ -103,13 +104,14 @@
                                           <Button fx:id="clearproj" mnemonicParsing="false" onAction="#clearProjFild" prefHeight="26.0" prefWidth="66.0" text="Clear" />
                                        </children>
                                     </HBox>
+                                    <TextField fx:id="searchProj" onAction="#SearchProj" promptText="Wyszukaj" />
                                  </children>
                               </VBox>
                            </children>
                         </AnchorPane>
                      </content>
                 </Tab>
-                  <Tab text="Wydarzenie">
+                  <Tab fx:id="searchWyd" onSelectionChanged="#SearchWyd" text="Wydarzenie">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
                            <children>
