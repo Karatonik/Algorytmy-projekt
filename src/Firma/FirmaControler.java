@@ -3,6 +3,8 @@ package Firma;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +33,9 @@ public class FirmaControler implements Initializable {
     int id_Firmy = 0;
     //Tranzakcje
     Savepoint savepoint;
+    //sortowanie
+    @FXML
+    private TextField filterFieldWorker, filterFieldWyd, filterFieldProj;
     //Wyszkukiwarka
     @FXML
     private TextField searchWorker, searchProj, searchWyd;
@@ -100,6 +105,9 @@ public class FirmaControler implements Initializable {
         loadWydData();
         loadProjData();
         loadWorkerData();
+        filtrWyd();
+        filtrProj();
+        filtrWorker();
     }
 
     //sesja
@@ -477,4 +485,104 @@ public class FirmaControler implements Initializable {
         }
     }
 
+    public void filtrWyd() {
+        FilteredList<EventsData> filteredData = new FilteredList<>(dataw, p -> true);
+        filterFieldWyd.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getName_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<EventsData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(WydTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        WydTable.setItems(sortedData);
+
+    }
+
+    public void filtrProj() {
+        FilteredList<EventsData> filteredData = new FilteredList<>(dataproj, p -> true);
+        filterFieldProj.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getName_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<EventsData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(ProjektTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        ProjektTable.setItems(sortedData);
+    }
+
+    public void filtrWorker() {
+        FilteredList<WorkerData> filteredData = new FilteredList<>(datap, p -> true);
+        filterFieldWorker.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Pracownika().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getDOB().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getPesel().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getStanowisko().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getEmail().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<WorkerData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(workertable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        workertable.setItems(sortedData);
+    }
 }
