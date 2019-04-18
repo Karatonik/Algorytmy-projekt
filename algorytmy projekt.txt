@@ -1,4 +1,4 @@
-sortowanie stream api wyra¿enia lambda
-wyszukiwarke szuka po ka¿dej kolumnie z bazy danych 
+sortowanie stream api wyra¿enia lambda ok
+wyszukiwarke szuka po ka¿dej kolumnie ok
 edycja na tabelce bazadanowej w kolumnie ok
 baza tranzakcyjna rollback ok
