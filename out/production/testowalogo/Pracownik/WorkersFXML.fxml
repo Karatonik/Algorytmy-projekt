@@ -72,5 +72,7 @@
          </children>
       </HBox>
       <TextField fx:id="searchWyd" layoutX="6.0" layoutY="361.0" onAction="#SearchWyd" prefHeight="26.0" prefWidth="602.0" promptText="Wyszukaj dla Wydarzeń" />
+      <TextField fx:id="filterFieldProj" layoutX="63.0" layoutY="387.0" onAction="#filtrProj" prefHeight="26.0" prefWidth="602.0" promptText="Filtr Projekt" />
+      <TextField fx:id="filterFieldWyd" layoutX="63.0" layoutY="413.0" onAction="#filtrWyd" prefHeight="26.0" prefWidth="602.0" promptText="Filtr wydarzenie" />
    </children>
 </AnchorPane>
