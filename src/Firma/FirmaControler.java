@@ -19,14 +19,69 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import static Loginapp.LoginControler.namef;
 
 public class FirmaControler implements Initializable  {
+    //połączenie
+    Connection conn;
+    @FXML
+    private Button status;
+    private dbConnection dc;
+    private boolean dng=false;
+    //Pracownicy
+    int id_Firmy=0;
+    @FXML
+    private TextField ID_Prac,name,lname,email,Stan,pesel;
+    @FXML
+    private DatePicker dobp;
+    @FXML
+    private  Button addp,loadp,clearp;
+    @FXML
+    private TableView<WorkerData> workertable;
+    @FXML
+    private TableColumn<WorkerData,String> idcolumn,namecolumn,lnamecolumn,emailcolumn,stancolumn,peselcolumn,dobcolumn;
+
+    private ObservableList<WorkerData> datap;
+    private final String sqlp="SELECT * FROM Pracownik";
+    //Tranzakcje
+    Savepoint savepoint;
+    private boolean sp=false;
+    @FXML
+    private Button commit,rollback,setPoint;
+    //Projekty
+    @FXML
+    private TextField nazwap;
+    @FXML
+    private DatePicker dobproj;
+    @FXML
+    private Button loadproj,addproj,clearproj;
+    @FXML
+    private TableView<EventsData> ProjektTable;
+    @FXML
+    private TableColumn<EventsData,String> idprojcolumn,nameprojcolumn,dobprojcolumn;
+
+    private ObservableList<EventsData> dataproj;
+    private final String sqlproj="SELECT * FROM Event WHERE PW='P'";
+    //Wydarzenie
+    @FXML
+    private TextField nazwaw;
+    @FXML
+    private DatePicker dobw;
+    @FXML
+    private Button loadw,addw,clearw;
+    @FXML
+    private TableView<EventsData> WydTable;
+    @FXML
+    private TableColumn<EventsData,String> idwcolumn,namewcolumn,dobwcolumn;
+
+    private ObservableList<EventsData> dataw;
+    private final String sqlw="SELECT * FROM Event WHERE PW='W'";
+
+    //metoda interfejsu
     public void initialize(URL url, ResourceBundle rb){
         this.dc=new dbConnection();
         loadWydData();
         loadProjData();
         loadWorkerData();
     }
-        Connection conn;
-    int id_Firmy=0;
+    //konstruktor
         public FirmaControler(){
             try {
                 conn=dbConnection.getConnection();
@@ -42,11 +97,7 @@ public class FirmaControler implements Initializable  {
                 e.printStackTrace();
             }
         }
-        //połączenie
-        @FXML
-        private Button status;
-    private dbConnection dc;
-        private boolean dng=false;
+//sesja
         @FXML
         private void disconnecting(ActionEvent a) {
             if (dng){
@@ -70,92 +121,38 @@ public class FirmaControler implements Initializable  {
 
             }
         }
-    //Nadpisanie interfejsu
-    //Pracownicy
+    //metody tranzakcji
     @FXML
-    private TextField ID_Prac;
+    private void commit(ActionEvent a){
+        try {
+            conn.commit();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        sp=false;
+    }
     @FXML
-    private TextField name;
-    @FXML
-    private TextField lname;
-    @FXML
-    private  TextField email;
-    @FXML
-    private  TextField Stan;
-    @FXML
-    private  TextField pesel;
-    @FXML
-    private DatePicker dobp;
-    @FXML
-    private  Button addp;
-    @FXML
-    private Button loadp;
-    @FXML
-    private Button clearp;
-    @FXML
-    private TableView<WorkerData> workertable;
-    @FXML
-    private TableColumn<WorkerData,String> idcolumn;
-    @FXML
-    private TableColumn<WorkerData,String> namecolumn;
-    @FXML
-    private TableColumn<WorkerData,String> lnamecolumn;
-    @FXML
-    private TableColumn<WorkerData,String> emailcolumn;
-    @FXML
-    private TableColumn<WorkerData,String> stancolumn;
-    @FXML
-    private TableColumn<WorkerData,String> peselcolumn;
-    @FXML
-    private TableColumn<WorkerData,String> dobcolumn;
-    //Tranzakcje
-    Savepoint savepoint;
-    private boolean sp=false;
-    @FXML
-    private Button commit;
-    @FXML
-    private Button rollback;
-    @FXML
-    private Button setPoint;
-    //Projekty
-    @FXML
-    private TextField nazwap;
-    @FXML
-    private DatePicker dobproj;
-    @FXML
-    private Button loadproj;
-    @FXML
-    private Button addproj;
-    @FXML
-    private Button clearproj;
-    @FXML
-    private TableView<EventsData> ProjektTable;
-    @FXML
-    private TableColumn<EventsData,String> idprojcolumn;
-    @FXML
-    private TableColumn<EventsData,String> nameprojcolumn;
-    @FXML
-    private TableColumn<EventsData,String> dobprojcolumn;
-//Wydarzenie
-@FXML
-private TextField nazwaw;
-    @FXML
-    private DatePicker dobw;
-    @FXML
-    private Button loadw;
-    @FXML
-    private Button addw;
-    @FXML
-    private Button clearw;
-    @FXML
-    private TableView<EventsData> WydTable;
-    @FXML
-    private TableColumn<EventsData,String> idwcolumn;
-    @FXML
-    private TableColumn<EventsData,String> namewcolumn;
-    @FXML
-    private TableColumn<EventsData,String> dobwcolumn;
+    private void setPoint(ActionEvent a){
+        try {
+            savepoint = conn.setSavepoint();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        sp=true;
+    }
 
+    @FXML
+    private void rollback(ActionEvent a){
+        if(sp){
+            try {
+                conn.rollback(savepoint);
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+
+    }
+    //zapis do bazy danych edytowanych komórek
     public void updata(String column, String newValue, String id, String nameTable, String whereID) {
         try (
                 PreparedStatement stmt = conn.prepareStatement("UPDATE " + nameTable + " SET " + column + " = ? WHERE " + whereID + "= ? ");
@@ -170,9 +167,7 @@ private TextField nazwaw;
             ex.printStackTrace(System.err);
         }
     }
-//metody wydarzenia
-private ObservableList<EventsData> dataw;
-    private final String sqlw="SELECT * FROM Event WHERE PW='W'";
+    //odczyt do tabeli Wydarzenia
 @FXML
 private void loadWydData(){
     try {
@@ -209,6 +204,7 @@ private void loadWydData(){
     this.WydTable.setItems(null);
     this.WydTable.setItems(this.dataw);
 }
+//zapis do tabeli wydarzenia
     @FXML
     private void addWyd(ActionEvent event){
 
@@ -225,14 +221,13 @@ private void loadWydData(){
             e.printStackTrace();
         }
     }
+    //czyszczenie pół tekstowych dla taeli wydarzenia
     @FXML
     private  void clearWydFild(ActionEvent event){
         this.nazwaw.setText("");
         this.dobw.setValue(null);
     }
-//metody rojektu
-private ObservableList<EventsData> dataproj;
-    private final String sqlproj="SELECT * FROM Event WHERE PW='P'";
+    //odczyt dla tabeli projekt
     @FXML
     private void loadProjData(){
         try {
@@ -268,6 +263,7 @@ private ObservableList<EventsData> dataproj;
         this.ProjektTable.setItems(null);
         this.ProjektTable.setItems(this.dataproj);
     }
+    //zapis dla tabeli projekt
     @FXML
     private void addProj(ActionEvent event){
 
@@ -284,14 +280,13 @@ private ObservableList<EventsData> dataproj;
             e.printStackTrace();
         }
     }
+    //czyści pola tekstowe dla tabeli projekt
     @FXML
     private  void clearProjFild(ActionEvent event){
         this.nazwap.setText("");
         this.dobproj.setValue(null);
     }
-    //metody pracownika
-    private ObservableList<WorkerData> datap;
-    private final String sqlp="SELECT * FROM Pracownik";
+    //odczyt dla tabeli Pracownik
     @FXML
     private void loadWorkerData(){
         try {
@@ -358,6 +353,7 @@ private ObservableList<EventsData> dataproj;
         this.workertable.setItems(null);
         this.workertable.setItems(this.datap);
     }
+    //odczyt dla tabeli pracownik
     @FXML
     private void addWorkers(ActionEvent event){
 
@@ -377,6 +373,7 @@ private ObservableList<EventsData> dataproj;
             e.printStackTrace();
         }
     }
+    //czyści pola tekstowa dla tabeli pravownik
     @FXML
     private  void clearWorkerFild(ActionEvent event){
         this.name.setText("");
@@ -386,35 +383,5 @@ private ObservableList<EventsData> dataproj;
         this.pesel.setText("");
         this.dobp.setValue(null);
     }
-//metody tranzakcji
-    @FXML
-    private void commit(ActionEvent a){
-        try {
-            conn.commit();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        sp=false;
-    }
-    @FXML
-    private void setPoint(ActionEvent a){
-        try {
-            savepoint = conn.setSavepoint();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        sp=true;
-    }
 
-    @FXML
-    private void rollback(ActionEvent a){
-        if(sp){
-            try {
-                conn.rollback(savepoint);
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-
-    }
 }
