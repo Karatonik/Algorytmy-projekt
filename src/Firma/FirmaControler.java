@@ -1,35 +1,43 @@
 package Firma;
 
 import dbUtil.dbConnection;
-
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+
+import java.net.URL;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import static Loginapp.LoginControler.namef;
 
 public class FirmaControler implements Initializable {
+    public static List<WorkerData> filteredWorkerList = new ArrayList<>();
+    public static List<EventsData> filteredProjList, filteredWydList = new ArrayList<>();
+    private final String sqlp = "SELECT * FROM Pracownik";
+    private final String sqlproj = "SELECT * FROM Event WHERE PW='P'";
+    private final String sqlw = "SELECT * FROM Event WHERE PW='W'";
     //połączenie
     Connection conn;
+    //Pracownicy
+    int id_Firmy = 0;
+    //Tranzakcje
+    Savepoint savepoint;
+    //Wyszkukiwarka
+    @FXML
+    private TextField searchWorker, searchProj, searchWyd;
     @FXML
     private Button status;
     private dbConnection dc;
     private boolean dng = false;
-    //Pracownicy
-    int id_Firmy = 0;
     @FXML
     private TextField ID_Prac, name, lname, email, Stan, pesel;
     @FXML
@@ -40,11 +48,7 @@ public class FirmaControler implements Initializable {
     private TableView<WorkerData> workertable;
     @FXML
     private TableColumn<WorkerData, String> idcolumn, namecolumn, lnamecolumn, emailcolumn, stancolumn, peselcolumn, dobcolumn;
-
     private ObservableList<WorkerData> datap;
-    private final String sqlp = "SELECT * FROM Pracownik";
-    //Tranzakcje
-    Savepoint savepoint;
     private boolean sp = false;
     @FXML
     private Button commit, rollback, setPoint;
@@ -59,9 +63,7 @@ public class FirmaControler implements Initializable {
     private TableView<EventsData> ProjektTable;
     @FXML
     private TableColumn<EventsData, String> idprojcolumn, nameprojcolumn, dobprojcolumn;
-
     private ObservableList<EventsData> dataproj;
-    private final String sqlproj = "SELECT * FROM Event WHERE PW='P'";
     //Wydarzenie
     @FXML
     private TextField nazwaw;
@@ -73,17 +75,7 @@ public class FirmaControler implements Initializable {
     private TableView<EventsData> WydTable;
     @FXML
     private TableColumn<EventsData, String> idwcolumn, namewcolumn, dobwcolumn;
-
     private ObservableList<EventsData> dataw;
-    private final String sqlw = "SELECT * FROM Event WHERE PW='W'";
-
-    //metoda interfejsu
-    public void initialize(URL url, ResourceBundle rb) {
-        this.dc = new dbConnection();
-        loadWydData();
-        loadProjData();
-        loadWorkerData();
-    }
 
     //konstruktor
     public FirmaControler() {
@@ -100,6 +92,14 @@ public class FirmaControler implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    //metoda interfejsu
+    public void initialize(URL url, ResourceBundle rb) {
+        this.dc = new dbConnection();
+        loadWydData();
+        loadProjData();
+        loadWorkerData();
     }
 
     //sesja
@@ -162,7 +162,7 @@ public class FirmaControler implements Initializable {
     //zapis do bazy danych edytowanych komórek
     public void updata(String column, String newValue, String id, String nameTable, String whereID) {
         try (
-                PreparedStatement stmt = conn.prepareStatement("UPDATE " + nameTable + " SET " + column + " = ? WHERE " + whereID + "= ? ");
+                PreparedStatement stmt = conn.prepareStatement("UPDATE " + nameTable + " SET " + column + " = ? WHERE " + whereID + "= ? ")
         ) {
 
             stmt.setString(1, newValue);
@@ -398,6 +398,83 @@ public class FirmaControler implements Initializable {
         this.Stan.setText("");
         this.pesel.setText("");
         this.dobp.setValue(null);
+    }
+
+    @FXML
+    public void SearchWyd() {
+        String criteria = searchWyd.getText();
+
+        try {
+        } catch (Exception e) {
+
+        }
+        filteredWydList = WydTable.getItems().stream().filter(person -> {
+            if (person.getID_Event().contains(criteria)) {
+                return true;
+            } else if (person.getDate().contains(criteria)) {
+                return true;
+            } else return person.getName_Event().contains(criteria);
+        }).collect(Collectors.toList());
+        ObservableList<EventsData> filteredPersons = FXCollections.observableArrayList(filteredWydList);
+        WydTable.setItems(filteredPersons);
+        if (searchWyd.getText().isEmpty()) {
+            WydTable.setItems(dataw);
+        }
+    }
+
+    @FXML
+    public void SearchProj() {
+        String criteria = searchProj.getText();
+
+        try {
+        } catch (Exception e) {
+
+        }
+        filteredProjList = ProjektTable.getItems().stream().filter(person -> {
+            if (person.getID_Event().contains(criteria)) {
+                return true;
+            } else if (person.getDate().contains(criteria)) {
+                return true;
+            } else return person.getName_Event().contains(criteria);
+        }).collect(Collectors.toList());
+        ObservableList<EventsData> filteredPersons = FXCollections.observableArrayList(filteredProjList);
+        ProjektTable.setItems(filteredPersons);
+        if (searchProj.getText().isEmpty()) {
+            ProjektTable.setItems(dataproj);
+        }
+    }
+
+    @FXML
+    public void SearchWorkers() {
+        String criteria = searchWorker.getText();
+
+        try {
+        } catch (Exception e) {
+
+        }
+        filteredWorkerList = workertable.getItems().stream().filter(person -> {
+            if (person.getID_Pracownika().contains(criteria)) {
+                return true;
+            } else if (person.firstNameProperty().getValue().contains(criteria)) {
+                return true;
+            } else if (person.getPesel().contains(criteria)) {
+                return true;
+            } else if (person.getStanowisko().contains(criteria)) {
+                return true;
+            } else if (person.lastNameProperty().getValue().contains(criteria)) {
+                return true;
+            } else if (person.emailProperty().getValue().contains(criteria)) {
+                return true;
+            } else if (person.DOBProperty().getValue().contains(criteria)) {
+                return true;
+            } else return person.ID_FirmyProperty().getValue().contains(criteria);
+        }).collect(Collectors.toList());
+
+        ObservableList<WorkerData> filteredPersons = FXCollections.observableArrayList(filteredWorkerList);
+        workertable.setItems(filteredPersons);
+        if (searchWorker.getText().isEmpty()) {
+            workertable.setItems(datap);
+        }
     }
 
 }
