@@ -94,6 +94,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchW" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchWorker" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
                            </children>
                         </VBox>
                      </children>
@@ -143,6 +144,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchFirma" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
                               <HBox prefHeight="100.0" prefWidth="200.0" />
                            </children>
                         </VBox>
@@ -198,13 +200,14 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchEvent" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Logowanie">
+            <Tab fx:id="" onSelectionChanged="#SearchLogin" text="Logowanie">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
                      <children>
@@ -257,6 +260,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchL" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchLogin" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
                            </children>
                         </VBox>
                      </children>
