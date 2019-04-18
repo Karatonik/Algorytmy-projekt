@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/PracownikData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/PracownikData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/PracownikData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/PracownikData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaControler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,15 +36,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Admin/AdminControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-490">
-              <caret line="443" column="31" selection-start-line="443" selection-start-column="31" selection-end-line="443" selection-end-column="31" />
+            <state relative-caret-position="289">
+              <caret line="146" column="8" lean-forward="true" selection-start-line="146" selection-start-column="8" selection-end-line="150" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#15456#15457#0" expanded="true" />
                 <element signature="e#15498#15499#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-68">
+              <caret line="306" column="24" selection-start-line="306" selection-start-column="24" selection-end-line="306" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Firma/WorkerData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="14" column="125" selection-start-line="14" selection-start-column="125" selection-end-line="14" selection-end-column="125" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2755#2756#0" expanded="true" />
+                <element signature="e#2792#2793#0" expanded="true" />
+                <element signature="e#2840#2841#0" expanded="true" />
+                <element signature="e#2871#2872#0" expanded="true" />
+                <element signature="e#2919#2920#0" expanded="true" />
+                <element signature="e#2962#2963#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,7 +158,6 @@
         <option value="$PROJECT_DIR$/src/dbUtil/dbConnection.java" />
         <option value="$PROJECT_DIR$/src/Firma/WorkerData.java" />
         <option value="$PROJECT_DIR$/src/Firma/EventsData.java" />
-        <option value="$PROJECT_DIR$/src/Firma/FirmaControler.java" />
         <option value="$PROJECT_DIR$/src/Pracownik/WorkersData.java" />
         <option value="$PROJECT_DIR$/src/Pracownik/EventsDataWorker.java" />
         <option value="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" />
@@ -149,6 +167,7 @@
         <option value="$PROJECT_DIR$/src/Admin/test.java" />
         <option value="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" />
         <option value="$PROJECT_DIR$/src/Admin/AdminControler.java" />
+        <option value="$PROJECT_DIR$/src/Firma/FirmaControler.java" />
       </list>
     </option>
   </component>
@@ -483,30 +502,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Firma/WorkerData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="125" selection-start-line="14" selection-start-column="125" selection-end-line="14" selection-end-column="125" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2755#2756#0" expanded="true" />
-            <element signature="e#2792#2793#0" expanded="true" />
-            <element signature="e#2840#2841#0" expanded="true" />
-            <element signature="e#2871#2872#0" expanded="true" />
-            <element signature="e#2919#2920#0" expanded="true" />
-            <element signature="e#2962#2963#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Events/Events.java" />
-    <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pracownik/WorkersData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -673,13 +669,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/AdminControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-490">
-          <caret line="443" column="31" selection-start-line="443" selection-start-column="31" selection-end-line="443" selection-end-column="31" />
+        <state relative-caret-position="289">
+          <caret line="146" column="8" lean-forward="true" selection-start-line="146" selection-start-column="8" selection-end-line="150" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#15456#15457#0" expanded="true" />
             <element signature="e#15498#15499#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/WorkerData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="125" selection-start-line="14" selection-start-column="125" selection-end-line="14" selection-end-column="125" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2755#2756#0" expanded="true" />
+            <element signature="e#2792#2793#0" expanded="true" />
+            <element signature="e#2840#2841#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
+            <element signature="e#2919#2920#0" expanded="true" />
+            <element signature="e#2962#2963#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="306" column="24" selection-start-line="306" selection-start-column="24" selection-end-line="306" selection-end-column="24" />
         </state>
       </provider>
     </entry>
