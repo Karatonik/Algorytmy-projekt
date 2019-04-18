@@ -24,6 +24,9 @@ public class AdminControler implements Initializable {
     //sortowanie
     @FXML
     private TextField filterFieldWorker, filterFieldFirma, filterFieldLogin, filterFieldEvent;
+
+
+
     private final String sql = "SELECT * FROM Pracownik";
     private final String sqlev = "SELECT * FROM Event";
     private final String sqlog = "SELECT * FROM Login";
@@ -121,10 +124,10 @@ public class AdminControler implements Initializable {
         loadEventData();
         loadLoginData();
         loadFirmaData();
-        /*filtrWorker();
+        filtrWorker();
         filtrLogin();
         filtrFirma();
-        filtrEvent();*/
+        filtrEvent();
     }
 
     //sesja
@@ -556,9 +559,9 @@ public class AdminControler implements Initializable {
             eventtable.setItems(dataev);
         }
     }
-}
 
-    /*public void filtrWorker() {
+
+    public void filtrWorker() {
         FilteredList<PracownikData> filteredData = new FilteredList<>(data, p -> true);
         filterFieldWorker.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(person -> {
@@ -679,8 +682,8 @@ public class AdminControler implements Initializable {
         // 5. Add sorted (and filtered) data to the table.
         loginTable.setItems(sortedData);
     }
-*/
 
+}
 
 
 
