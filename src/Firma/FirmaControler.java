@@ -14,11 +14,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+
 import static Loginapp.LoginControler.namef;
 
 public class FirmaControler implements Initializable  {
     public void initialize(URL url, ResourceBundle rb){
         this.dc=new dbConnection();
+        loadWydData();
+        loadProjData();
+        loadWorkerData();
     }
         Connection conn;
     int id_Firmy=0;
@@ -150,11 +155,26 @@ private TextField nazwaw;
     private TableColumn<EventsData,String> namewcolumn;
     @FXML
     private TableColumn<EventsData,String> dobwcolumn;
+
+    public void updata(String column, String newValue, String id, String nameTable, String whereID) {
+        try (
+                PreparedStatement stmt = conn.prepareStatement("UPDATE " + nameTable + " SET " + column + " = ? WHERE " + whereID + "= ? ");
+        ) {
+
+            stmt.setString(1, newValue);
+            stmt.setString(2, id);
+            stmt.execute();
+        } catch (SQLException ex) {
+            System.err.println("Error");
+            // if anything goes wrong, you will need the stack trace:
+            ex.printStackTrace(System.err);
+        }
+    }
 //metody wydarzenia
 private ObservableList<EventsData> dataw;
     private final String sqlw="SELECT * FROM Event WHERE PW='W'";
 @FXML
-private void loadWydData(ActionEvent event){
+private void loadWydData(){
     try {
         this.dataw= FXCollections.observableArrayList();
         ResultSet rs=conn.createStatement().executeQuery(sqlw);
@@ -164,9 +184,28 @@ private void loadWydData(ActionEvent event){
     }catch (SQLException e){
         System.err.println("ERROR"+e);
     }
+    this.WydTable.setEditable(true);
+    this.WydTable.getSelectionModel().setCellSelectionEnabled(true);
+
+    this.namewcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+    this.dobwcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
     this.idwcolumn.setCellValueFactory(new PropertyValueFactory("ID_Event"));
     this.namewcolumn.setCellValueFactory(new PropertyValueFactory("name_Event"));
     this.dobwcolumn.setCellValueFactory(new PropertyValueFactory("Date"));
+
+    namewcolumn.setOnEditCommit(event -> {
+        EventsData uname = event.getRowValue();
+        uname.setName_Event(event.getNewValue());
+        updata("name_Event", event.getNewValue(), uname.getID_Event(), "Event", "ID_Event");
+    });
+    dobwcolumn.setOnEditCommit(event -> {
+        EventsData udob = event.getRowValue();
+        udob.setDate(event.getNewValue());
+        updata("Date", event.getNewValue(), udob.getID_Event(), "Event", "ID_Event");
+    });
+
     this.WydTable.setItems(null);
     this.WydTable.setItems(this.dataw);
 }
@@ -195,7 +234,7 @@ private void loadWydData(ActionEvent event){
 private ObservableList<EventsData> dataproj;
     private final String sqlproj="SELECT * FROM Event WHERE PW='P'";
     @FXML
-    private void loadProjData(ActionEvent event){
+    private void loadProjData(){
         try {
             this.dataproj= FXCollections.observableArrayList();
             ResultSet rs=conn.createStatement().executeQuery(sqlproj);
@@ -205,9 +244,27 @@ private ObservableList<EventsData> dataproj;
         }catch (SQLException e){
             System.err.println("ERROR"+e);
         }
+        this.ProjektTable.setEditable(true);
+        this.ProjektTable.getSelectionModel().setCellSelectionEnabled(true);
+
+        this.nameprojcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.dobprojcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
         this.idprojcolumn.setCellValueFactory(new PropertyValueFactory("ID_Event"));
         this.nameprojcolumn.setCellValueFactory(new PropertyValueFactory("name_Event"));
         this.dobprojcolumn.setCellValueFactory(new PropertyValueFactory("Date"));
+
+        nameprojcolumn.setOnEditCommit(event -> {
+            EventsData uname = event.getRowValue();
+            uname.setName_Event(event.getNewValue());
+            updata("name_Event", event.getNewValue(), uname.getID_Event(), "Event", "ID_Event");
+        });
+        dobprojcolumn.setOnEditCommit(event -> {
+            EventsData udob = event.getRowValue();
+            udob.setDate(event.getNewValue());
+            updata("Date", event.getNewValue(), udob.getID_Event(), "Event", "ID_Event");
+        });
+
         this.ProjektTable.setItems(null);
         this.ProjektTable.setItems(this.dataproj);
     }
@@ -236,7 +293,7 @@ private ObservableList<EventsData> dataproj;
     private ObservableList<WorkerData> datap;
     private final String sqlp="SELECT * FROM Pracownik";
     @FXML
-    private void loadWorkerData(ActionEvent event){
+    private void loadWorkerData(){
         try {
             this.datap= FXCollections.observableArrayList();
             ResultSet rs=conn.createStatement().executeQuery(sqlp);
@@ -246,6 +303,18 @@ private ObservableList<EventsData> dataproj;
         }catch (SQLException e){
             System.err.println("ERROR"+e);
         }
+        this.workertable.setEditable(true);
+        this.workertable.getSelectionModel().setCellSelectionEnabled(true);
+
+        this.idcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.namecolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.lnamecolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.emailcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.dobcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.stancolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        this.peselcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+
         this.idcolumn.setCellValueFactory(new PropertyValueFactory("ID_Pracownika"));
         this.namecolumn.setCellValueFactory(new PropertyValueFactory("firstName"));
         this.lnamecolumn.setCellValueFactory(new PropertyValueFactory("lastName"));
@@ -253,6 +322,39 @@ private ObservableList<EventsData> dataproj;
         this.dobcolumn.setCellValueFactory(new PropertyValueFactory("DOB"));
         this.stancolumn.setCellValueFactory(new PropertyValueFactory("Stanowisko"));
         this.peselcolumn.setCellValueFactory(new PropertyValueFactory("Pesel"));
+
+        namecolumn.setOnEditCommit(event -> {
+            WorkerData uname = event.getRowValue();
+            uname.setFirstName(event.getNewValue());
+            updata("fname", event.getNewValue(), uname.getID_Pracownika(), "Pracownik", "ID_Pracownika");
+        });
+        lnamecolumn.setOnEditCommit(event -> {
+            WorkerData ulname = event.getRowValue();
+            ulname.setLastName(event.getNewValue());
+            updata("lname", event.getNewValue(), ulname.getID_Pracownika(), "Pracownik", "ID_Pracownika");
+        });
+        emailcolumn.setOnEditCommit(event -> {
+            WorkerData uemail = event.getRowValue();
+            uemail.setEmail(event.getNewValue());
+            updata("email", event.getNewValue(), uemail.getID_Pracownika(), "Pracownik", "ID_Pracownika");
+        });
+        dobcolumn.setOnEditCommit(event -> {
+            WorkerData udob = event.getRowValue();
+            udob.setDOB(event.getNewValue());
+            updata("DOB", event.getNewValue(), udob.getID_Pracownika(), "Pracownik", "ID_Pracownika");
+        });
+        stancolumn.setOnEditCommit(event -> {
+            WorkerData ustan = event.getRowValue();
+            ustan.setDOB(event.getNewValue());
+            updata("Stanowisko", event.getNewValue(), ustan.getID_Pracownika(), "Pracownik", "ID_Pracownika");
+        });
+        peselcolumn.setOnEditCommit(event -> {
+            WorkerData upesel = event.getRowValue();
+            upesel.setDOB(event.getNewValue());
+            updata("Pesel", event.getNewValue(), upesel.getID_Pracownika(), "Pracownik", "ID_Pracownika");
+        });
+
+
         this.workertable.setItems(null);
         this.workertable.setItems(this.datap);
     }
