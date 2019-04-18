@@ -1,11 +1,6 @@
 package Loginapp;
 
 import Admin.AdminControler;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import Firma.FirmaControler;
 import Pracownik.WorkersControler;
 import javafx.collections.FXCollections;
@@ -13,20 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class LoginControler implements Initializable {
-    LoginModel loginModel = new LoginModel();
     public static String namef = " ";
+    LoginModel loginModel = new LoginModel();
     @FXML
     private Label dbstatus;
     @FXML
@@ -50,10 +43,10 @@ public class LoginControler implements Initializable {
     @FXML
     public void Login(ActionEvent event) {
         try {
-            if (this.loginModel.islogin(this.username.getText(), this.password.getText(), ((option) this.combobox.getValue()).toString())) {
+            if (this.loginModel.islogin(this.username.getText(), this.password.getText(), this.combobox.getValue().toString())) {
                 Stage stage = (Stage) this.loginbutton.getScene().getWindow();
                 stage.close();
-                switch (((option) this.combobox.getValue()).toString()) {
+                switch (this.combobox.getValue().toString()) {
                     case "Admin":
                         adminLogin();
                         break;
@@ -83,8 +76,8 @@ public class LoginControler implements Initializable {
         try {
             Stage adminStage = new Stage();
             FXMLLoader adminLoader = new FXMLLoader();
-            Pane root = (Pane) adminLoader.load(getClass().getResource("/Admin/AdminFXML.fxml").openStream());
-            AdminControler adminControler = (AdminControler) adminLoader.getController();
+            Pane root = adminLoader.load(getClass().getResource("/Admin/AdminFXML.fxml").openStream());
+            AdminControler adminControler = adminLoader.getController();
 
             Scene adminscene = new Scene(root);
 
@@ -102,8 +95,8 @@ public class LoginControler implements Initializable {
         try {
             Stage firmaStage = new Stage();
             FXMLLoader firmaLoader = new FXMLLoader();
-            Pane root = (Pane) firmaLoader.load(getClass().getResource("/Firma/FirmaFXML.fxml").openStream());
-            FirmaControler firmaControler = (FirmaControler) firmaLoader.getController();
+            Pane root = firmaLoader.load(getClass().getResource("/Firma/FirmaFXML.fxml").openStream());
+            FirmaControler firmaControler = firmaLoader.getController();
 
             Scene firmascene = new Scene(root);
 
@@ -120,8 +113,8 @@ public class LoginControler implements Initializable {
         try {
             Stage workerStage = new Stage();
             FXMLLoader workerLoader = new FXMLLoader();
-            Pane root = (Pane) workerLoader.load(getClass().getResource("/Pracownik/WorkersFXML.fxml").openStream());
-            WorkersControler workersControler = (WorkersControler) workerLoader.getController();
+            Pane root = workerLoader.load(getClass().getResource("/Pracownik/WorkersFXML.fxml").openStream());
+            WorkersControler workersControler = workerLoader.getController();
 
             Scene workerscene = new Scene(root);
 
