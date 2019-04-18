@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class PracownikData {
-    private StringProperty test;
     private final StringProperty ID;
     private final StringProperty firstName;
     private final StringProperty lastName;
@@ -84,17 +83,6 @@ public class PracownikData {
         this.ID_Firmy.set(ID_Firmy);
     }
 
-    public String getTest() {
-        return test.get();
-    }
-
-    public StringProperty testProperty() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test.set(test);
-    }
 
     public  PracownikData(String id, String firstName, String lastName, String email, String DOB, String id_firmy) {
         this.ID = new SimpleStringProperty(id);
