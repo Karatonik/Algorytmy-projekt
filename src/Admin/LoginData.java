@@ -9,9 +9,9 @@ public class LoginData {
     private final StringProperty division;
 
 
-    public LoginData(String user,String pass,String div){
+    public LoginData(String user, String pass, String div) {
         this.username = new SimpleStringProperty(user);
-        this.pass= new SimpleStringProperty(pass);
+        this.pass = new SimpleStringProperty(pass);
         this.division = new SimpleStringProperty(div);
     }
 
@@ -19,35 +19,35 @@ public class LoginData {
         return username.get();
     }
 
-    public StringProperty usernameProperty() {
-        return username;
-    }
-
     public void setUsername(String username) {
         this.username.set(username);
+    }
+
+    public StringProperty usernameProperty() {
+        return username;
     }
 
     public String getPass() {
         return pass.get();
     }
 
-    public StringProperty passProperty() {
-        return pass;
-    }
-
     public void setPass(String pass) {
         this.pass.set(pass);
+    }
+
+    public StringProperty passProperty() {
+        return pass;
     }
 
     public String getDivision() {
         return division.get();
     }
 
-    public StringProperty divisionProperty() {
-        return division;
-    }
-
     public void setDivision(String division) {
         this.division.set(division);
+    }
+
+    public StringProperty divisionProperty() {
+        return division;
     }
 }
