@@ -1,163 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-
-<AnchorPane prefHeight="470.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Firma.FirmaControler">
-   <children>
-      <VBox prefHeight="470.0" prefWidth="806.0">
-         <children>
-            <TabPane prefHeight="450.0" prefWidth="806.0" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="Pracownicy">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="806.0">
-                           <children>
-                              <HBox layoutX="200.0" prefHeight="401.0" prefWidth="610.0">
-                                 <children>
-                                    <TableView fx:id="workertable" prefHeight="440.0" prefWidth="594.0">
-                                      <columns>
-                                        <TableColumn fx:id="idcolumn" prefWidth="75.0" text="ID_Pracownika" />
-                                        <TableColumn fx:id="namecolumn" prefWidth="78.4000244140625" text="Imie" />
-                                          <TableColumn fx:id="lnamecolumn" prefWidth="51.199951171875" text="Nazwisko" />
-                                          <TableColumn fx:id="emailcolumn" prefWidth="53.5999755859375" text="email" />
-                                          <TableColumn fx:id="dobcolumn" prefWidth="91.20001220703125" text="DOB" />
-                                          <TableColumn fx:id="stancolumn" prefWidth="96.0" text="Stanowisko" />
-                                          <TableColumn fx:id="peselcolumn" prefWidth="136.7999267578125" text="Pesel" />
-                                      </columns>
-                                    </TableView>
-                                 </children>
-                              </HBox>
-                              <VBox prefHeight="371.0" prefWidth="198.0">
-                                 <children>
-                                    <TextField fx:id="name" promptText="Imie">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <TextField fx:id="lname" promptText="Nazwisko">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <TextField fx:id="email" promptText="email">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <TextField fx:id="Stan" promptText="Stanowisko" />
-                                    <TextField fx:id="pesel" promptText="Pesel" />
-                                    <DatePicker fx:id="dobp" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="addp" mnemonicParsing="false" onAction="#addWorkers" prefHeight="26.0" prefWidth="65.0" text="Add" />
-                                          <Button fx:id="loadp" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="26.0" prefWidth="82.0" text="Load" />
-                                          <Button fx:id="clearp" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="26.0" prefWidth="66.0" text="Clear" />
-                                       </children>
-                                    </HBox>
-                                    <TextField fx:id="searchWorker" onAction="#SearchWorkers" promptText="Wyszukaj" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab text="Projekty">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
-                           <children>
-                              <HBox layoutX="200.0" prefHeight="413.0" prefWidth="606.0">
-                                 <children>
-                                    <TableView fx:id="ProjektTable" prefHeight="370.0" prefWidth="641.0">
-                                       <columns>
-                                          <TableColumn fx:id="idprojcolumn" prefWidth="145.5999755859375" text="ID_Event" />
-                                          <TableColumn fx:id="nameprojcolumn" prefWidth="235.20004272460938" text="Nazwa" />
-                                          <TableColumn fx:id="dobprojcolumn" prefWidth="225.5999755859375" text="Data" />
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </HBox>
-                              <VBox prefHeight="416.0" prefWidth="202.0">
-                                 <children>
-                                    <TextField fx:id="nazwap" promptText="Nazwa">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <DatePicker fx:id="dobproj" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="addproj" mnemonicParsing="false" onAction="#addProj" prefHeight="26.0" prefWidth="65.0" text="Add" />
-                                          <Button fx:id="loadproj" mnemonicParsing="false" onAction="#loadProjData" prefHeight="26.0" prefWidth="82.0" text="Load" />
-                                          <Button fx:id="clearproj" mnemonicParsing="false" onAction="#clearProjFild" prefHeight="26.0" prefWidth="66.0" text="Clear" />
-                                       </children>
-                                    </HBox>
-                                    <TextField fx:id="searchProj" onAction="#SearchProj" promptText="Wyszukaj" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                </Tab>
-                  <Tab fx:id="searchWyd" onSelectionChanged="#SearchWyd" text="Wydarzenie">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
-                           <children>
-                              <HBox layoutX="200.0" prefHeight="413.0" prefWidth="606.0">
-                                 <children>
-                                    <TableView fx:id="WydTable" prefHeight="370.0" prefWidth="641.0">
-                                       <columns>
-                                          <TableColumn fx:id="idwcolumn" prefWidth="145.5999755859375" text="ID_Event" />
-                                          <TableColumn fx:id="namewcolumn" prefWidth="235.20004272460938" text="Nazwa" />
-                                          <TableColumn fx:id="dobwcolumn" prefWidth="225.5999755859375" text="Data" />
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </HBox>
-                              <VBox prefHeight="416.0" prefWidth="202.0">
-                                 <children>
-                                    <TextField fx:id="nazwaw" promptText="Nazwa">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <DatePicker fx:id="dobw" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="addw" mnemonicParsing="false" onAction="#addWyd" prefHeight="26.0" prefWidth="65.0" text="Add" />
-                                          <Button fx:id="loadw" mnemonicParsing="false" onAction="#loadWydData" prefHeight="26.0" prefWidth="82.0" text="Load" />
-                                          <Button fx:id="clearw" mnemonicParsing="false" onAction="#clearWydFild" prefHeight="26.0" prefWidth="66.0" text="Clear" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-            <HBox prefHeight="0.0" prefWidth="790.0">
-               <children>
-                  <Button fx:id="commit" mnemonicParsing="false" onAction="#commit" prefHeight="26.0" prefWidth="230.0" text="Commit" />
-                  <Button fx:id="rollback" mnemonicParsing="false" onAction="#rollback" prefHeight="26.0" prefWidth="238.0" text="Rollback" />
-                  <Button fx:id="setPoint" mnemonicParsing="false" onAction="#setPoint" prefHeight="26.0" prefWidth="223.0" text="SetPoint" />
-                  <Button fx:id="status" mnemonicParsing="false" onAction="#disconnecting" text="Status" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="470.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Firma.FirmaControler">
+    <children>
+        <VBox prefHeight="470.0" prefWidth="806.0">
+            <children>
+                <TabPane prefHeight="450.0" prefWidth="806.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Pracownicy">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="806.0">
+                                    <children>
+                                        <HBox layoutX="200.0" prefHeight="401.0" prefWidth="610.0">
+                                            <children>
+                                                <TableView fx:id="workertable" prefHeight="440.0" prefWidth="594.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="idcolumn" prefWidth="75.0"
+                                                                     text="ID_Pracownika"/>
+                                                        <TableColumn fx:id="namecolumn" prefWidth="78.4000244140625"
+                                                                     text="Imie"/>
+                                                        <TableColumn fx:id="lnamecolumn" prefWidth="51.199951171875"
+                                                                     text="Nazwisko"/>
+                                                        <TableColumn fx:id="emailcolumn" prefWidth="53.5999755859375"
+                                                                     text="email"/>
+                                                        <TableColumn fx:id="dobcolumn" prefWidth="91.20001220703125"
+                                                                     text="DOB"/>
+                                                        <TableColumn fx:id="stancolumn" prefWidth="96.0"
+                                                                     text="Stanowisko"/>
+                                                        <TableColumn fx:id="peselcolumn" prefWidth="136.7999267578125"
+                                                                     text="Pesel"/>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </HBox>
+                                        <VBox prefHeight="371.0" prefWidth="198.0">
+                                            <children>
+                                                <TextField fx:id="name" promptText="Imie">
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="lname" promptText="Nazwisko">
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="email" promptText="email">
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="Stan" promptText="Stanowisko"/>
+                                                <TextField fx:id="pesel" promptText="Pesel"/>
+                                                <DatePicker fx:id="dobp"/>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Button fx:id="addp" mnemonicParsing="false"
+                                                                onAction="#addWorkers" prefHeight="26.0"
+                                                                prefWidth="65.0" text="Add"/>
+                                                        <Button fx:id="loadp" mnemonicParsing="false"
+                                                                onAction="#loadWorkerData" prefHeight="26.0"
+                                                                prefWidth="82.0" text="Load"/>
+                                                        <Button fx:id="clearp" mnemonicParsing="false"
+                                                                onAction="#clearWorkerFild" prefHeight="26.0"
+                                                                prefWidth="66.0" text="Clear"/>
+                                                    </children>
+                                                </HBox>
+                                                <TextField fx:id="searchWorker" onAction="#SearchWorkers"
+                                                           promptText="Wyszukaj"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Projekty">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                            </content>
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
+                                    <children>
+                                        <HBox layoutX="200.0" prefHeight="413.0" prefWidth="606.0">
+                                            <children>
+                                                <TableView fx:id="ProjektTable" prefHeight="370.0" prefWidth="641.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="idprojcolumn" prefWidth="145.5999755859375"
+                                                                     text="ID_Event"/>
+                                                        <TableColumn fx:id="nameprojcolumn"
+                                                                     prefWidth="235.20004272460938" text="Nazwa"/>
+                                                        <TableColumn fx:id="dobprojcolumn" prefWidth="225.5999755859375"
+                                                                     text="Data"/>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </HBox>
+                                        <VBox prefHeight="416.0" prefWidth="202.0">
+                                            <children>
+                                                <TextField fx:id="nazwap" promptText="Nazwa">
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <DatePicker fx:id="dobproj"/>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Button fx:id="addproj" mnemonicParsing="false"
+                                                                onAction="#addProj" prefHeight="26.0" prefWidth="65.0"
+                                                                text="Add"/>
+                                                        <Button fx:id="loadproj" mnemonicParsing="false"
+                                                                onAction="#loadProjData" prefHeight="26.0"
+                                                                prefWidth="82.0" text="Load"/>
+                                                        <Button fx:id="clearproj" mnemonicParsing="false"
+                                                                onAction="#clearProjFild" prefHeight="26.0"
+                                                                prefWidth="66.0" text="Clear"/>
+                                                    </children>
+                                                </HBox>
+                                                <TextField fx:id="searchProj" onAction="#SearchProj"
+                                                           promptText="Wyszukaj"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="searchWyd" onSelectionChanged="#SearchWyd" text="Wydarzenie">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
+                                    <children>
+                                        <HBox layoutX="200.0" prefHeight="413.0" prefWidth="606.0">
+                                            <children>
+                                                <TableView fx:id="WydTable" prefHeight="370.0" prefWidth="641.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="idwcolumn" prefWidth="145.5999755859375"
+                                                                     text="ID_Event"/>
+                                                        <TableColumn fx:id="namewcolumn" prefWidth="235.20004272460938"
+                                                                     text="Nazwa"/>
+                                                        <TableColumn fx:id="dobwcolumn" prefWidth="225.5999755859375"
+                                                                     text="Data"/>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </HBox>
+                                        <VBox prefHeight="416.0" prefWidth="202.0">
+                                            <children>
+                                                <TextField fx:id="nazwaw" promptText="Nazwa">
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <DatePicker fx:id="dobw"/>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Button fx:id="addw" mnemonicParsing="false" onAction="#addWyd"
+                                                                prefHeight="26.0" prefWidth="65.0" text="Add"/>
+                                                        <Button fx:id="loadw" mnemonicParsing="false"
+                                                                onAction="#loadWydData" prefHeight="26.0"
+                                                                prefWidth="82.0" text="Load"/>
+                                                        <Button fx:id="clearw" mnemonicParsing="false"
+                                                                onAction="#clearWydFild" prefHeight="26.0"
+                                                                prefWidth="66.0" text="Clear"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <HBox prefHeight="0.0" prefWidth="790.0">
+                    <children>
+                        <Button fx:id="commit" mnemonicParsing="false" onAction="#commit" prefHeight="26.0"
+                                prefWidth="230.0" text="Commit"/>
+                        <Button fx:id="rollback" mnemonicParsing="false" onAction="#rollback" prefHeight="26.0"
+                                prefWidth="238.0" text="Rollback"/>
+                        <Button fx:id="setPoint" mnemonicParsing="false" onAction="#setPoint" prefHeight="26.0"
+                                prefWidth="223.0" text="SetPoint"/>
+                        <Button fx:id="status" mnemonicParsing="false" onAction="#disconnecting" text="Status"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>
