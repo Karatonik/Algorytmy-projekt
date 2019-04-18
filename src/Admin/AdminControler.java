@@ -4,6 +4,8 @@ import Loginapp.option;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,14 +21,31 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class AdminControler implements Initializable {
-    public static List<PracownikData> filteredWorkerList = new ArrayList<>();
-    public static List<FirmyData> filteredFirmaList = new ArrayList<>();
-    public static List<LoginData> filteredLoginList = new ArrayList<>();
-    public static List<EventData> filteredEventList = new ArrayList<>();
+    //sortowanie
+    @FXML
+    private TextField filterFieldWorker, filterFieldFirma, filterFieldLogin, filterFieldEvent;
     private final String sql = "SELECT * FROM Pracownik";
     private final String sqlev = "SELECT * FROM Event";
     private final String sqlog = "SELECT * FROM Login";
     private final String sqlfirma = "SELECT * FROM Firma";
+    //wyszukiwanie
+    private List<PracownikData> filteredWorkerList = new ArrayList<>();
+    private List<FirmyData> filteredFirmaList = new ArrayList<>();
+    private List<LoginData> filteredLoginList = new ArrayList<>();
+    private List<EventData> filteredEventList = new ArrayList<>();
+    @FXML
+    public TableView<PracownikData> workertable;
+    private ObservableList<PracownikData> data;
+    @FXML
+    public TableView<EventData> eventtable;
+    private ObservableList<EventData> dataev;
+    @FXML
+    public TableView<LoginData> loginTable;
+    private ObservableList<LoginData> datalog;
+    @FXML
+    public TableView<FirmyData> firmatable;
+    @FXML
+    private ObservableList<FirmyData> dataf;
     //połączenie
     Connection conn;
     //tranzakcje
@@ -46,14 +65,11 @@ public class AdminControler implements Initializable {
     @FXML
     private DatePicker dob;
     @FXML
-    private TableView<PracownikData> workertable;
-    @FXML
     private TableColumn<PracownikData, String> idcolumn, fnamecolumn, lnamecolumn, emailcolumn, idfcolumn;
     @FXML
     private Button add, clear, load;
     @FXML
     private TableColumn<PracownikData, String> dobcolumn;
-    private ObservableList<PracownikData> data;
     //Events
     @FXML
     private TextField idevent, nameevent;
@@ -62,10 +78,7 @@ public class AdminControler implements Initializable {
     @FXML
     private DatePicker devent;
     @FXML
-    private TableView<EventData> eventtable;
-    @FXML
     private TableColumn<EventData, String> ideventcolumn, nameeventcolumn, deventcolumn;
-    private ObservableList<EventData> dataev;
     //LOGIN
     @FXML
     private TextField nameUser, passUser;
@@ -74,10 +87,7 @@ public class AdminControler implements Initializable {
     @FXML
     private ComboBox<option> combodiv;
     @FXML
-    private TableView<LoginData> loginTable;
-    @FXML
     private TableColumn<LoginData, String> userUsercolumn, passUsercolumn, divUsercolumn;
-    private ObservableList<LoginData> datalog;
     private boolean sp = false;
     @FXML
     private Button ok, no, start, savePoint;
@@ -87,11 +97,7 @@ public class AdminControler implements Initializable {
     @FXML
     private Button addfirma, clearfirma, loadfirma;
     @FXML
-    private TableView<FirmyData> firmatable;
-    @FXML
     private TableColumn<FirmyData, String> idfirmacolumn, namefirmacolumn;
-    @FXML
-    private ObservableList<FirmyData> dataf;
 
     //konstruktor
     public AdminControler() {
@@ -115,6 +121,10 @@ public class AdminControler implements Initializable {
         loadEventData();
         loadLoginData();
         loadFirmaData();
+        /*filtrWorker();
+        filtrLogin();
+        filtrFirma();
+        filtrEvent();*/
     }
 
     //sesja
@@ -546,9 +556,131 @@ public class AdminControler implements Initializable {
             eventtable.setItems(dataev);
         }
     }
-
-
 }
+
+    /*public void filtrWorker() {
+        FilteredList<PracownikData> filteredData = new FilteredList<>(data, p -> true);
+        filterFieldWorker.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getDOB().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getEmail().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<PracownikData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(workertable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        workertable.setItems(sortedData);
+    }
+
+    public void filtrEvent() {
+        FilteredList<EventData> filteredData = new FilteredList<>(dataev, p -> true);
+        filterFieldEvent.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getName_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } else if (person.getID_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<EventData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(eventtable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        eventtable.setItems(sortedData);
+    }
+
+    public void filtrFirma() {
+        FilteredList<FirmyData> filteredData = new FilteredList<>(dataf, p -> true);
+        filterFieldFirma.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getNazwa_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getID_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<FirmyData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(firmatable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        firmatable.setItems(sortedData);
+    }
+
+    public void filtrLogin() {
+        FilteredList<LoginData> filteredData = new FilteredList<>(datalog, p -> true);
+        filterFieldLogin.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getDivision().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (person.getUsername().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+        SortedList<LoginData> sortedData = new SortedList<>(filteredData);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(loginTable.comparatorProperty());
+
+        // 5. Add sorted (and filtered) data to the table.
+        loginTable.setItems(sortedData);
+    }
+*/
+
 
 
 
