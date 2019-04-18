@@ -3,53 +3,56 @@ package Pracownik;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import static Loginapp.LoginControler.namef;
 
 public class WorkersControler implements Initializable {
 
-    public void initialize(URL url, ResourceBundle rb) {
-        this.dc = new dbConnection();
-    }
 
+    //wyszukiwarka
+    public static List<EventsDataWorker> filteredProjList, filteredWydList = new ArrayList<>();
+    private final String sql = "SELECT * FROM Pracownik WHERE  fname='" + namef + "';";
+    private final String sqlw = "SELECT * FROM Event WHERE PW='W'";
+    private final String sqlp = "SELECT * FROM Event WHERE PW='P'";
     //połączenie
     Connection conn;
+    @FXML
+    private TextField searchProj, searchWyd;
     private dbConnection dc;
     @FXML
     private Button reboot;
     //dane
     @FXML
     private Label id, flname, email, dob, stan, pesel;
-
-    private final String sql = "SELECT * FROM Pracownik WHERE  fname='" + namef + "';";
     private ObservableList<WorkersData> data;
     //wydarzenia/projekty
     @FXML
     private TableColumn<EventsDataWorker, String> nameproj, namewyd, dateproj, datewyd, statusproj;
     @FXML
     private TableView<EventsDataWorker> workerProjtable, workerWydtable;
-
-    private final String sqlw = "SELECT * FROM Event WHERE PW='W'";
-    private final String sqlp = "SELECT * FROM Event WHERE PW='P'";
     private ObservableList<EventsDataWorker> datap, dataw;
+
+    public void initialize(URL url, ResourceBundle rb) {
+        reboot();
+        this.dc = new dbConnection();
+    }
 
     //wczytanie danych z wydarzeń i projektów
     @FXML
-    private void reboot(ActionEvent event) {
+    private void reboot() {
         try {
             conn = dbConnection.getConnection();
             this.datap = FXCollections.observableArrayList();
@@ -95,6 +98,55 @@ public class WorkersControler implements Initializable {
             System.err.println("ERROR" + e);
         }
     }
+
+    @FXML
+    public void SearchWyd() {
+        String criteria = searchWyd.getText();
+
+        try {
+        } catch (Exception e) {
+
+        }
+        filteredWydList = workerWydtable.getItems().stream().filter(person -> {
+            if (person.getID_Event().contains(criteria)) {
+                return true;
+            } else if (person.getDate().contains(criteria)) {
+                return true;
+            } else return person.getName_Event().contains(criteria);
+        }).collect(Collectors.toList());
+        ObservableList<EventsDataWorker> filteredPersons = FXCollections.observableArrayList(filteredWydList);
+        workerWydtable.setItems(filteredPersons);
+        if (searchWyd.getText().isEmpty()) {
+            workerWydtable.setItems(dataw);
+        }
+    }
+
+    @FXML
+    public void SearchProj() {
+        String criteria = searchProj.getText();
+
+        try {
+        } catch (Exception e) {
+
+
+        }
+        filteredProjList = workerProjtable.getItems().stream().filter(person -> {
+            if (person.getID_Event().contains(criteria)) {
+                return true;
+            } else if (person.getDate().contains(criteria)) {
+                return true;
+            } else if (person.getName_Event().contains(criteria)) {
+                return true;
+            } else return person.getStatus().contains(criteria);
+        }).collect(Collectors.toList());
+        ObservableList<EventsDataWorker> filteredPersons = FXCollections.observableArrayList(filteredProjList);
+        workerProjtable.setItems(filteredPersons);
+        if (searchProj.getText().isEmpty()) {
+            workerProjtable.setItems(datap);
+        }
+    }
+
+
 }
 
 
