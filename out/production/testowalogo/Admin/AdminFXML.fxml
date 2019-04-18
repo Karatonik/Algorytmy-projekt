@@ -27,7 +27,7 @@
                               <TableView fx:id="workertable" prefHeight="778.0" prefWidth="904.0">
                                 <columns>
                                   <TableColumn fx:id="idcolumn" prefWidth="85.59991455078125" text="ID" />
-                                  <TableColumn fx:id="fnamecolumn" onEditCommit="#oneEditNameWorkerCell" prefWidth="224.80007934570312" text="Name" />
+                                  <TableColumn fx:id="fnamecolumn" onEditCommit="#getRow" prefWidth="224.80007934570312" text="Name" />
                                     <TableColumn fx:id="lnamecolumn" prefWidth="193.5999755859375" text="Last Name" />
                                     <TableColumn fx:id="emailcolumn" prefWidth="72.00006103515625" text="Email" />
                                     <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="180.7999267578125" text="DOB" />
@@ -91,6 +91,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <Label fx:id="testl" prefHeight="18.0" prefWidth="233.0" text="Label" />
                            </children>
                         </VBox>
                      </children>
