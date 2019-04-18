@@ -17,7 +17,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="726.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.AdminControler">
    <children>
-      <TabPane layoutX="-10.0" layoutY="-5.0" prefHeight="726.0" prefWidth="1399.0" tabClosingPolicy="UNAVAILABLE">
+      <HBox layoutX="-6.0" layoutY="677.0" prefHeight="50.0" prefWidth="1278.0">
+         <children>
+            <Button fx:id="ok" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commit" prefHeight="50.0" prefWidth="254.0" text="commit" />
+            <Button fx:id="savePoint" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPoint" prefHeight="51.0" prefWidth="312.0" text="savepoint" />
+            <Button fx:id="dconnect" cancelButton="true" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#disconnecting" prefHeight="48.0" prefWidth="362.0" text="rozłącz" />
+            <Button fx:id="no" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rollback" prefHeight="51.0" prefWidth="346.0" text="rollback" />
+         </children>
+      </HBox>
+      <TabPane layoutX="-10.0" layoutY="-5.0" prefHeight="677.0" prefWidth="1286.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Pracownicy">
             <content>
@@ -25,14 +33,14 @@
                      <children>
                         <HBox layoutX="370.0" layoutY="-4.0" prefHeight="731.0" prefWidth="1400.0">
                            <children>
-                              <TableView fx:id="workertable" prefHeight="731.0" prefWidth="1031.0">
+                              <TableView fx:id="workertable" prefHeight="731.0" prefWidth="958.0">
                                 <columns>
                                   <TableColumn fx:id="idcolumn" prefWidth="85.59991455078125" text="ID" />
                                   <TableColumn fx:id="fnamecolumn" prefWidth="224.80007934570312" text="Name" />
                                     <TableColumn fx:id="lnamecolumn" prefWidth="218.0" text="Last Name" />
                                     <TableColumn fx:id="emailcolumn" prefWidth="151.0" text="Email" />
-                                    <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="133.0" text="DOB" />
-                                    <TableColumn fx:id="idfcolumn" minWidth="0.0" prefWidth="217.0" text="ID_Firmy" />
+                                    <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="55.2001953125" text="DOB" />
+                                    <TableColumn fx:id="idfcolumn" minWidth="0.0" prefWidth="295.999755859375" text="ID_Firmy" />
                                 </columns>
                               </TableView>
                            </children>
@@ -84,26 +92,6 @@
                               <Button fx:id="load" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="30.0" prefWidth="315.0" text="Load data">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="ok" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commit" prefHeight="30.0" prefWidth="150.0" text="commit">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="100.0" top="15.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="savePoint" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPoint" prefHeight="30.0" prefWidth="150.0" text="savepoint">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="100.0" top="5.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="dconnect" cancelButton="true" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#disconnecting" prefHeight="30.0" prefWidth="150.0" text="rozłącz">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="100.0" top="5.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="no" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rollback" prefHeight="30.0" prefWidth="150.0" text="rollback">
-                                 <VBox.margin>
-                                    <Insets left="100.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
                            </children>
