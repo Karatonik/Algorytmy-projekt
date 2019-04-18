@@ -15,7 +15,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class AdminControler  implements Initializable {
+public class AdminControler implements Initializable {
 
     //zmienne
     //połączenie
@@ -27,15 +27,15 @@ public class AdminControler  implements Initializable {
     private dbConnection dc;
     //Pracownik
     @FXML
-    private TextField id,fname,lname,email,idf,testl;
+    private TextField id, fname, lname, email, idf, testl;
     @FXML
     private DatePicker dob;
     @FXML
     private TableView<PracownikData> workertable;
     @FXML
-    private TableColumn<PracownikData, String> idcolumn,fnamecolumn,lnamecolumn,emailcolumn,idfcolumn;
+    private TableColumn<PracownikData, String> idcolumn, fnamecolumn, lnamecolumn, emailcolumn, idfcolumn;
     @FXML
-    private Button add,clear,load;
+    private Button add, clear, load;
     @FXML
     private TableColumn<PracownikData, String> dobcolumn;
 
@@ -44,52 +44,52 @@ public class AdminControler  implements Initializable {
     private final String sql = "SELECT * FROM Pracownik";
     //Events
     @FXML
-    private TextField idevent,nameevent;
+    private TextField idevent, nameevent;
     @FXML
-    private Button addevent,clearevent,loadevent;
+    private Button addevent, clearevent, loadevent;
     @FXML
     private DatePicker devent;
     @FXML
     private TableView<EventData> eventtable;
     @FXML
-    private TableColumn<EventData, String> ideventcolumn,nameeventcolumn,deventcolumn;
+    private TableColumn<EventData, String> ideventcolumn, nameeventcolumn, deventcolumn;
 
     private ObservableList<EventData> dataev;
 
     private final String sqlev = "SELECT * FROM Event";
     //LOGIN
     @FXML
-    private TextField nameUser,passUser;
+    private TextField nameUser, passUser;
     @FXML
-    private Button divUser,addUser,clearUser,loadUser;
+    private Button divUser, addUser, clearUser, loadUser;
     @FXML
-    private ComboBox<option>combodiv;
+    private ComboBox<option> combodiv;
     @FXML
     private TableView<LoginData> loginTable;
     @FXML
-    private TableColumn<LoginData,String> userUsercolumn,passUsercolumn,divUsercolumn;
+    private TableColumn<LoginData, String> userUsercolumn, passUsercolumn, divUsercolumn;
 
     private ObservableList<LoginData> datalog;
 
-    private final String sqlog="SELECT * FROM Login";
+    private final String sqlog = "SELECT * FROM Login";
     //tranzakcje
     Savepoint savepoint;
-    private boolean sp=false;
+    private boolean sp = false;
     @FXML
-    private Button ok,no,start,savePoint;
+    private Button ok, no, start, savePoint;
     //Firmy
     @FXML
-    private TextField idfirma,namefirma;
+    private TextField idfirma, namefirma;
     @FXML
-    private Button addfirma,clearfirma,loadfirma;
+    private Button addfirma, clearfirma, loadfirma;
     @FXML
     private TableView<FirmyData> firmatable;
     @FXML
-    private TableColumn<FirmyData,String> idfirmacolumn,namefirmacolumn;
+    private TableColumn<FirmyData, String> idfirmacolumn, namefirmacolumn;
     @FXML
     private ObservableList<FirmyData> dataf;
 
-    private final String sqlfirma="SELECT * FROM Firma";
+    private final String sqlfirma = "SELECT * FROM Firma";
 
     //metody
     //interfejs
@@ -101,7 +101,8 @@ public class AdminControler  implements Initializable {
         loadLoginData();
         loadFirmaData();
     }
-//konstruktor
+
+    //konstruktor
     public AdminControler() {
         try {
             conn = dbConnection.getConnection();
@@ -113,6 +114,7 @@ public class AdminControler  implements Initializable {
 
 
     }
+
     //sesja
     @FXML
     private void disconnecting(ActionEvent a) {
@@ -136,36 +138,40 @@ public class AdminControler  implements Initializable {
 
         }
     }
+
     //kontrola tranzakcji
     @FXML
-    private void commit(ActionEvent a){
+    private void commit(ActionEvent a) {
         try {
             conn.commit();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        sp=false;
+        sp = false;
     }
+
     @FXML
-    private void setPoint(ActionEvent a){
+    private void setPoint(ActionEvent a) {
         try {
             savepoint = conn.setSavepoint();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        sp=true;
+        sp = true;
     }
+
     @FXML
-    private void rollback(ActionEvent a){
-        if(sp){
+    private void rollback(ActionEvent a) {
+        if (sp) {
             try {
                 conn.rollback(savepoint);
-            }catch (SQLException e){
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
 
     }
+
     //metoda aktualizująca baze dany po komórkach
     public void updata(String column, String newValue, String id, String nameTable, String whereID) {
         try (
@@ -181,6 +187,7 @@ public class AdminControler  implements Initializable {
             ex.printStackTrace(System.err);
         }
     }
+
     //Potrzebna metoda to edytowalnej tablicy
     @FXML
     public void getRow() {
@@ -190,6 +197,7 @@ public class AdminControler  implements Initializable {
         String data1 = (String) col.getCellObservableValue(row).getValue();
         System.out.println(data1);
     }
+
     //odczyt dla tabeli pracownik
     @FXML
     private void loadWorkerData() {
@@ -242,6 +250,7 @@ public class AdminControler  implements Initializable {
         workertable.setItems(null);
         workertable.setItems(data);
     }
+
     //zapis dla tabeli pracownik
     @FXML
     private void addWorker(ActionEvent event) {
@@ -259,6 +268,7 @@ public class AdminControler  implements Initializable {
         }
 
     }
+
     //czyszczenie pól tekstowych
     @FXML
     private void clearWorkerFild(ActionEvent event) {
@@ -269,6 +279,7 @@ public class AdminControler  implements Initializable {
         this.idf.setText("");
         this.dob.setValue(null);
     }
+
     //odczyt dla tabeli eventy
     @FXML
     private void loadEventData() {
@@ -305,38 +316,41 @@ public class AdminControler  implements Initializable {
         this.eventtable.setItems(null);
         this.eventtable.setItems(this.dataev);
     }
-//zapis dla tabeli eventy
+
+    //zapis dla tabeli eventy
     @FXML
-    private void addevent(ActionEvent event){
-        String sqlInserte="INSERT INTO Event(name_Event,Date) VALUES (?,?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInserte);
-            ps.setString(1,this.nameevent.getText());
-            ps.setString(2,this.devent.getEditor().getText());
+    private void addevent(ActionEvent event) {
+        String sqlInserte = "INSERT INTO Event(name_Event,Date) VALUES (?,?) ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sqlInserte);
+            ps.setString(1, this.nameevent.getText());
+            ps.setString(2, this.devent.getEditor().getText());
 
             ps.execute();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     //czysci pola tekstowe dla tabeli eventy
     @FXML
-    private  void cleareventFild(ActionEvent event){
+    private void cleareventFild(ActionEvent event) {
         this.nameevent.setText("");
         this.devent.setValue(null);
     }
- //odczyt dla tabeli Login
+
+    //odczyt dla tabeli Login
     @FXML
-    private void loadLoginData(){
+    private void loadLoginData() {
         try {
-            this.datalog= FXCollections.observableArrayList();
-            ResultSet rs=conn.createStatement().executeQuery(sqlog);
-            while(rs.next()){
-                this.datalog.add(new LoginData(rs.getString(1),rs.getString(2),rs.getString(3)));
+            this.datalog = FXCollections.observableArrayList();
+            ResultSet rs = conn.createStatement().executeQuery(sqlog);
+            while (rs.next()) {
+                this.datalog.add(new LoginData(rs.getString(1), rs.getString(2), rs.getString(3)));
             }
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
+        } catch (SQLException e) {
+            System.err.println("ERROR" + e);
         }
         this.loginTable.setEditable(true);
         this.loginTable.getSelectionModel().setCellSelectionEnabled(true);
@@ -348,54 +362,57 @@ public class AdminControler  implements Initializable {
         this.passUsercolumn.setCellValueFactory(new PropertyValueFactory("pass"));
         this.divUsercolumn.setCellValueFactory(new PropertyValueFactory("division"));
 
-      passUsercolumn.setOnEditCommit(events -> {
+        passUsercolumn.setOnEditCommit(events -> {
             LoginData upass = events.getRowValue();
             upass.setPass(events.getNewValue());
-            updata("pass", events.getNewValue(), upass.getUsername(),"Login","username");
+            updata("pass", events.getNewValue(), upass.getUsername(), "Login", "username");
         });
         divUsercolumn.setOnEditCommit(events -> {
             LoginData udiv = events.getRowValue();
             udiv.setDivision(events.getNewValue());
-            updata("pass", events.getNewValue(), udiv.getUsername(),"Login","username");
+            updata("pass", events.getNewValue(), udiv.getUsername(), "Login", "username");
         });
 
         this.loginTable.setItems(null);
         this.loginTable.setItems(this.datalog);
     }
-//zapis dla tabeli login
+
+    //zapis dla tabeli login
     @FXML
-    private void addLogin(ActionEvent event){
-        String sqlInsertl="INSERT INTO Login(username,pass,division) VALUES (?,?,?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInsertl);
-            ps.setString(1,this.nameUser.getText());
-            ps.setString(2,this.passUser.getText());
+    private void addLogin(ActionEvent event) {
+        String sqlInsertl = "INSERT INTO Login(username,pass,division) VALUES (?,?,?) ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sqlInsertl);
+            ps.setString(1, this.nameUser.getText());
+            ps.setString(2, this.passUser.getText());
             //ps.setString(3,this.divUser.getText());
-            ps.setString(3,combodiv.getValue().toString());
+            ps.setString(3, combodiv.getValue().toString());
             ps.execute();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     //czysci pola tekstowe dla tabeli Login
     @FXML
-    private  void clearLoginFild(ActionEvent event){
+    private void clearLoginFild(ActionEvent event) {
         this.nameUser.setText("");
         this.passUser.setText("");
         this.divUser.setText("");
 
     }
-//odczyt dla tabeli Firmy
+
+    //odczyt dla tabeli Firmy
     @FXML
-    private void loadFirmaData(){
+    private void loadFirmaData() {
         try {
-            this.dataf= FXCollections.observableArrayList();
-            ResultSet rs=conn.createStatement().executeQuery(sqlfirma);
-            while(rs.next()){
-                this.dataf.add(new FirmyData(rs.getString(1),rs.getString(2)));
+            this.dataf = FXCollections.observableArrayList();
+            ResultSet rs = conn.createStatement().executeQuery(sqlfirma);
+            while (rs.next()) {
+                this.dataf.add(new FirmyData(rs.getString(1), rs.getString(2)));
             }
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
+        } catch (SQLException e) {
+            System.err.println("ERROR" + e);
         }
         this.firmatable.setEditable(true);
         this.firmatable.getSelectionModel().setCellSelectionEnabled(true);
@@ -409,27 +426,29 @@ public class AdminControler  implements Initializable {
         namefirmacolumn.setOnEditCommit(events -> {
             FirmyData uname = events.getRowValue();
             uname.setNazwa_Firmy(events.getNewValue());
-            updata("Nazwa_Firmy", events.getNewValue(), uname.getID_Firmy(),"Firma","ID_Firmy");
+            updata("Nazwa_Firmy", events.getNewValue(), uname.getID_Firmy(), "Firma", "ID_Firmy");
         });
 
         this.firmatable.setItems(null);
         this.firmatable.setItems(this.dataf);
     }
+
     //zapis dla tabeli firmy
     @FXML
-    private void addFirmy(ActionEvent event){
-        String sqlInsertf="INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInsertf);
-            ps.setString(1,this.namefirma.getText());
+    private void addFirmy(ActionEvent event) {
+        String sqlInsertf = "INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sqlInsertf);
+            ps.setString(1, this.namefirma.getText());
             ps.execute();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     //czyści pola tekstowe da tabeli Firmy
     @FXML
-    private  void clearFirmaFild(ActionEvent event){
+    private void clearFirmaFild(ActionEvent event) {
         this.namefirma.setText("");
     }
 
