@@ -16,47 +16,27 @@ import static Loginapp.LoginControler.namef;
 public class WorkersControler implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb){ this.dc=new dbConnection(); }
-    Connection conn;
-
     //połączenie
-
+    Connection conn;
     private dbConnection dc;
-
-    //przeciązenia
-@FXML
-            private Label id;
-    @FXML
-            private Label flname;
-    @FXML
-            private Label email;
-    @FXML
-            private Label dob;
-    @FXML
-            private Label stan;
-    @FXML
-            private Label pesel;
     @FXML
     private Button reboot;
-    @FXML
-    private TableView<EventsDataWorker> workerProjtable;
-    @FXML
-    private TableView<EventsDataWorker> workerWydtable;
-    @FXML
-    private TableColumn<EventsDataWorker,String> nameproj;
-    @FXML
-    private TableColumn<EventsDataWorker,String> namewyd;
-    @FXML
-    private TableColumn<EventsDataWorker,String> dateproj;
-    @FXML
-    private TableColumn<EventsDataWorker,String> datewyd;
-    @FXML
-    private TableColumn<EventsDataWorker,String> statusproj;
-    private ObservableList<EventsDataWorker> datap;
-    private ObservableList<EventsDataWorker> dataw;
+//dane
+@FXML
+private Label id,flname,email,dob,stan,pesel;
+
+    private final String sql="SELECT * FROM Pracownik WHERE  fname='"+namef+"';";
     private ObservableList<WorkersData> data;
+    //wydarzenia/projekty
+    @FXML
+    private TableColumn<EventsDataWorker,String> nameproj,namewyd,dateproj,datewyd,statusproj;
+    @FXML
+    private TableView<EventsDataWorker> workerProjtable,workerWydtable;
+
     private final String sqlw="SELECT * FROM Event WHERE PW='W'";
     private final String sqlp="SELECT * FROM Event WHERE PW='P'";
-    private final String sql="SELECT * FROM Pracownik WHERE  fname='"+namef+"';";
+    private ObservableList<EventsDataWorker> datap,dataw;
+    //wczytanie danych z wydarzeń i projektów
 @FXML
     private void reboot(ActionEvent event){
     try {
@@ -88,8 +68,6 @@ public class WorkersControler implements Initializable {
     this.datewyd.setCellValueFactory(new PropertyValueFactory("Date"));
     this.workerWydtable.setItems(null);
     this.workerWydtable.setItems(this.dataw);
-
-//lable dla pracownika
     try {
         this.data= FXCollections.observableArrayList();
         ResultSet rs3=conn.createStatement().executeQuery(sql);
@@ -105,9 +83,7 @@ public class WorkersControler implements Initializable {
     }catch (SQLException e){
         System.err.println("ERROR"+e);
     }
-
 }
-
 }
 
 
