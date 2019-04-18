@@ -2,26 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach">
+      <change afterPath="$PROJECT_DIR$/src/Admin/Filtr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/EventData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/EventData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/FirmyData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/FirmyData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/LoginData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/LoginData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/PracownikData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/PracownikData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/EventsData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/EventsData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/LoginApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/LoginApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/LoginControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/LoginControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/LoginModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/LoginModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/option.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/option.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/EventsDataWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/EventsDataWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/dbUtil/dbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/dbUtil/dbConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/AdminControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/EventData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/EventData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/FirmyData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/FirmyData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/LoginData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/PracownikData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/PracownikData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/EventsData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/EventsData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/LoginApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/LoginApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/LoginControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/LoginControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/EventsDataWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/EventsDataWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dbUtil/dbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbUtil/dbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sqlite-journal" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,50 +58,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Admin/AdminControler.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="126" column="23" selection-start-line="126" selection-start-column="23" selection-end-line="126" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#16225#16226#0" expanded="true" />
+                <element signature="e#16267#16268#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Admin/Filtr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Loginapp/LoginControler.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="173">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="416" column="40" selection-start-line="416" selection-start-column="40" selection-end-line="416" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Firma/EventsData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1663#1664#0" expanded="true" />
-                <element signature="e#1694#1695#0" expanded="true" />
-                <element signature="e#1797#1798#0" expanded="true" />
-                <element signature="e#1828#1829#0" expanded="true" />
-                <element signature="e#1736#1737#0" expanded="true" />
-                <element signature="e#1761#1762#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dbUtil/dbConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+              <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,8 +144,8 @@
         <entry file="file://$PROJECT_DIR$/src/Admin/AdminFXML.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="209" column="24" selection-start-line="209" selection-start-column="24" selection-end-line="209" selection-end-column="24" />
+            <state relative-caret-position="3570">
+              <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -208,6 +190,18 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>data</find>
+      <find>dataev</find>
+      <find>eventtable</find>
+      <find>daf</find>
+      <find>dataf</find>
+      <find>firmata</find>
+      <find>datalog</find>
+      <find>Loginta</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -251,6 +245,7 @@
         <option value="$PROJECT_DIR$/src/Admin/LoginData.java" />
         <option value="$PROJECT_DIR$/src/Admin/FirmyData.java" />
         <option value="$PROJECT_DIR$/src/Admin/EventData.java" />
+        <option value="$PROJECT_DIR$/src/Admin/Filtr.java" />
         <option value="$PROJECT_DIR$/src/Admin/AdminControler.java" />
       </list>
     </option>
@@ -435,7 +430,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14192708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -447,15 +441,15 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.10973937" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49739584" visible="true" weight="0.22085048" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49609375" visible="true" weight="0.22085048" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39917696" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026042" side_tool="true" visible="true" weight="0.22085048" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4986979" weight="0.32921812" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50390625" side_tool="true" visible="true" weight="0.22085048" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49739584" weight="0.32921812" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
@@ -515,7 +509,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Mała łatka w imortach" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a8ee6262-65bd-4bf6-bbae-fe32e73fc16c/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cebe7431-4507-450b-b849-aa5d94dddc1b/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/98e38471-2da5-4379-8042-2402e577f45e/console.sql" />
     <entry file="das://4ca939c0-8b93-40a6-b0e0-2f596a844630/collation/BINARY" />
@@ -646,16 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Loginapp/LoginControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Firma/FirmaFXML.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -686,16 +669,6 @@
             <element signature="e#1828#1829#0" expanded="true" />
             <element signature="e#1736#1737#0" expanded="true" />
             <element signature="e#1761#1762#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dbUtil/dbConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,20 +742,49 @@
     <entry file="file://$PROJECT_DIR$/src/Admin/AdminStyleSheet.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/dbUtil/dbConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/AdminFXML.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="209" column="24" selection-start-line="209" selection-start-column="24" selection-end-line="209" selection-end-column="24" />
+        <state relative-caret-position="3570">
+          <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Loginapp/LoginControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Filtr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/AdminControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="187">
+          <caret line="126" column="23" selection-start-line="126" selection-start-column="23" selection-end-line="126" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#16225#16226#0" expanded="true" />
+            <element signature="e#16267#16268#0" expanded="true" />
           </folding>
         </state>
       </provider>
