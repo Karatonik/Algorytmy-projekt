@@ -1,27 +1,19 @@
 package Admin;
+
 import Loginapp.option;
 import dbUtil.dbConnection;
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
-
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
-import  javafx.scene.control.TableCell;
-import  javafx.scene.control.TableColumn;
-import  javafx.scene.control.TableColumn.CellEditEvent;
-import  javafx.scene.control.TableView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.util.Callback;
+
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
 
 public class AdminControler  implements Initializable {
 
