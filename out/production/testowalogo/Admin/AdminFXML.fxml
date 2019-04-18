@@ -95,6 +95,7 @@
                                  </VBox.margin>
                               </Button>
                               <TextField fx:id="searchW" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchWorker" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
+                              <TextField fx:id="filterField" promptText="Filitr" />
                            </children>
                         </VBox>
                      </children>
