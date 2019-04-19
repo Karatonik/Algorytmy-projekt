@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/Add.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/Add.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/DecAndClear.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/DecAndClear.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/Search.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/Updata.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/Updata.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/Search.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Loginapp/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/DecAndClear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/DecAndClear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Load.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Updata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Updata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Reboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/Reboot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sqlite-journal" beforeDir="false" />
-    </list>
+    <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -450,9 +421,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14192708" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14192708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -463,7 +433,7 @@
       <window_info id="simpleUML" order="8" weight="0.3294271" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986979" weight="0.10973937" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4908854" visible="true" weight="0.22085048" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4908854" weight="0.22085048" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4986979" weight="0.39917696" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
