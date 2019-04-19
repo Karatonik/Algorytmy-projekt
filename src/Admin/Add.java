@@ -7,8 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Add extends Load {
+    //metody zapisu rekordu
     @FXML
-    private void addWorker(ActionEvent event) {
+   public void addWorker(ActionEvent event) {
         String sqlInsert = "INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?) ";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlInsert);
@@ -25,7 +26,7 @@ public class Add extends Load {
     }
 
     @FXML
-    private void addevent(ActionEvent event) {
+   public void addevent(ActionEvent event) {
         String sqlInserte = "INSERT INTO Event(name_Event,Date) VALUES (?,?) ";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlInserte);
@@ -40,7 +41,7 @@ public class Add extends Load {
     }
 
     @FXML
-    private void addLogin(ActionEvent event) {
+   public void addLogin(ActionEvent event) {
         String sqlInsertl = "INSERT INTO Login(username,pass,division) VALUES (?,?,?) ";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlInsertl);
@@ -53,10 +54,8 @@ public class Add extends Load {
             e.printStackTrace();
         }
     }
-
-    //zapis dla tabeli firmy
     @FXML
-    private void addFirmy(ActionEvent event) {
+  public   void addFirmy(ActionEvent event) {
         String sqlInsertf = "INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
         try {
             PreparedStatement ps = conn.prepareStatement(sqlInsertf);

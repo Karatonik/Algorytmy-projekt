@@ -13,20 +13,17 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static Loginapp.LoginControler.namef;
 
 public class Reboot {
     //wyszukiwarka
-    public static List<EventsDataWorker> filteredProjList, filteredWydList = new ArrayList<>();
     public final String sql = "SELECT * FROM Pracownik WHERE  fname='" + namef + "';";
     public final String sqlw = "SELECT * FROM Event WHERE PW='W'";
     public final String sqlp = "SELECT * FROM Event WHERE PW='P'";
     //połączenie
     @FXML
-            public Button Logout;
+    public Button Logout;
     Connection conn;
     //srotowanie
     @FXML
@@ -95,12 +92,13 @@ public class Reboot {
             System.err.println("ERROR" + e);
         }
     }
+
     @FXML
-    public void loginout(ActionEvent event) throws Exception{
+    public void loginout(ActionEvent event) throws Exception {
         Stage stage = (Stage) this.Logout.getScene().getWindow();
         stage.close();
-        Stage stage1=new Stage();
-        LoginApp loginApp =new LoginApp();
+        Stage stage1 = new Stage();
+        LoginApp loginApp = new LoginApp();
         loginApp.start(stage1);
 
     }

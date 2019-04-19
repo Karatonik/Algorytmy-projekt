@@ -21,50 +21,8 @@ public class WorkersControler extends Reboot implements Initializable {
         filtrWyd();
     }
 
-    @FXML
-    public void SearchWyd() {
-        String criteria = searchWyd.getText();
 
-        try {
-        } catch (Exception e) {
-        }
-        filteredWydList = workerWydtable.getItems().stream().filter(person -> {
-            if (person.getID_Event().contains(criteria)) {
-                return true;
-            } else if (person.getDate().contains(criteria)) {
-                return true;
-            } else return person.getName_Event().contains(criteria);
-        }).collect(Collectors.toList());
-        ObservableList<EventsDataWorker> filteredPersons = FXCollections.observableArrayList(filteredWydList);
-        workerWydtable.setItems(filteredPersons);
-        if (searchWyd.getText().isEmpty()) {
-            workerWydtable.setItems(dataw);
-        }
-    }
-
-    @FXML
-    public void SearchProj() {
-        String criteria = searchProj.getText();
-
-        try {
-        } catch (Exception e) {
-        }
-        filteredProjList = workerProjtable.getItems().stream().filter(person -> {
-            if (person.getID_Event().contains(criteria)) {
-                return true;
-            } else if (person.getDate().contains(criteria)) {
-                return true;
-            } else if (person.getName_Event().contains(criteria)) {
-                return true;
-            } else return person.getStatus().contains(criteria);
-        }).collect(Collectors.toList());
-        ObservableList<EventsDataWorker> filteredPersons = FXCollections.observableArrayList(filteredProjList);
-        workerProjtable.setItems(filteredPersons);
-        if (searchProj.getText().isEmpty()) {
-            workerProjtable.setItems(datap);
-        }
-    }
-
+//Wyszukwinaie
     public void filtrWyd() {
         FilteredList<EventsDataWorker> filteredData = new FilteredList<>(dataw, p -> true);
         filterFieldWyd.textProperty().addListener((observable, oldValue, newValue) -> {

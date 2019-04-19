@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 
 import static Loginapp.LoginControler.namef;
 
-public class FirmaControler extends Search implements Initializable {
+public class FirmaControler extends Add implements Initializable {
 
     //konstruktor
     public FirmaControler() {

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import static Admin.Updata.updata;
 
 public class Load extends DecAndClear {
-
+//odczyt z bazy danych
     @FXML
     public void loadWorkerData() {
         try {
