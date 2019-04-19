@@ -2,39 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach">
+      <change afterPath="$PROJECT_DIR$/src/Admin/Add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/Load.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/Search.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/Updata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Clear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Load.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Map.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Search.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Firma/Updata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pracownik/Reboot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorytmy projekt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/algorytmy projekt.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/Filtr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersControler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/AdminControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Clear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Filtr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Load.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Transaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Updata.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Add.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Clear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Filtr.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Firma/FirmaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Load.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Transaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Updata.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Add.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Clear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Filtr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Load.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/Updata.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,24 +56,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Admin/AdminControler.java">
+        <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="621" column="7" selection-start-line="621" selection-start-column="7" selection-end-line="626" selection-end-column="40" />
+            <state relative-caret-position="306">
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#16225#16226#0" expanded="true" />
-                <element signature="e#16267#16268#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
+        <entry file="file://$PROJECT_DIR$/src/Firma/Search.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="37" selection-end-column="73" />
+            <state relative-caret-position="1156">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,8 +82,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Pracownik/WorkersControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="123" column="44" lean-forward="true" selection-start-line="123" selection-start-column="44" selection-end-line="123" selection-end-column="44" />
+            <state relative-caret-position="340">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,20 +92,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Firma/FirmaFXML.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$PROJECT_DIR$/src/Pracownik/Reboot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="115" column="48" lean-forward="true" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Loginapp/LoginControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+            <state relative-caret-position="782">
+              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,11 +104,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Admin/AdminFXML.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$PROJECT_DIR$/src/Firma/Add.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1079">
-              <caret line="212" column="17" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
+            <state relative-caret-position="1190">
+              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Firma/Map.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Firma/Clear.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Firma/Load.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1489">
+              <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Firma/EventsData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,6 +167,7 @@
       <list>
         <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -158,6 +182,8 @@
       <find>firmata</find>
       <find>datalog</find>
       <find>Loginta</find>
+      <find>co</find>
+      <find>sp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,9 +228,25 @@
         <option value="$PROJECT_DIR$/src/Admin/Filtr.java" />
         <option value="$PROJECT_DIR$/src/Admin/Clear.java" />
         <option value="$PROJECT_DIR$/src/Admin/AdminFXML.fxml" />
-        <option value="$PROJECT_DIR$/src/Admin/AdminControler.java" />
         <option value="$PROJECT_DIR$/src/Firma/FirmaFXML.fxml" />
+        <option value="$PROJECT_DIR$/src/Admin/Updata.java" />
+        <option value="$PROJECT_DIR$/src/Admin/Session.java" />
+        <option value="$PROJECT_DIR$/src/Admin/ParentAdminControler.java" />
+        <option value="$PROJECT_DIR$/src/Admin/Load.java" />
+        <option value="$PROJECT_DIR$/src/Admin/Add.java" />
+        <option value="$PROJECT_DIR$/src/Admin/Search.java" />
+        <option value="$PROJECT_DIR$/src/Admin/AdminControler.java" />
+        <option value="$PROJECT_DIR$/src/Admin/Map.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Updata.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Clear.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Session.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Load.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Add.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Search.java" />
         <option value="$PROJECT_DIR$/src/Firma/FirmaControler.java" />
+        <option value="$PROJECT_DIR$/src/Firma/Map.txt" />
+        <option value="$PROJECT_DIR$/src/Pracownik/Updata.java" />
+        <option value="$PROJECT_DIR$/src/Pracownik/Reboot.java" />
         <option value="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" />
       </list>
     </option>
@@ -215,8 +257,8 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="71" />
-    <option name="y" value="132" />
+    <option name="x" value="70" />
+    <option name="y" value="131" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
@@ -227,6 +269,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,7 +316,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -294,6 +336,7 @@
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Pracownik" />
+      <recent name="Firma" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -389,8 +432,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14192708" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14192708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -400,14 +444,14 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49934897" weight="0.10973937" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49479166" weight="0.22085048" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49414062" visible="true" weight="0.22085048" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39917696" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5052083" side_tool="true" visible="true" weight="0.22085048" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5058594" side_tool="true" visible="true" weight="0.22085048" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49674478" weight="0.32921812" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
@@ -433,25 +477,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Mała łatka w imortach" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Admin/test.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/students/studnetFXML.fxml" />
-    <entry file="file://$PROJECT_DIR$/../JAVA-FX-School-Management-System-with-SQLITE-master/src/Admin/AdminController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Loginapp/login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../JAVA-FX-School-Management-System-with-SQLITE-master/src/loginapp/LoginMainController.java" />
-    <entry file="file://$PROJECT_DIR$/src/students/StudentsControler.java" />
-    <entry file="file://$PROJECT_DIR$/src/students/studentStyleSheet.css" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
-    <entry file="file://$PROJECT_DIR$/src/Admin/studentData.java" />
-    <entry file="file://$PROJECT_DIR$/src/Admin/optionAdmin.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/Initializable.java" />
-    <entry file="file://$PROJECT_DIR$/src/dbUtil/Transaction.java" />
     <entry file="file://$PROJECT_DIR$/src/dbUtil/dbTransaction.java" />
     <entry file="file://$PROJECT_DIR$/src/Events/Events.java" />
     <entry file="file://$PROJECT_DIR$/src/Admin/test.java" />
@@ -479,12 +504,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pracownik/WorkersFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Loginapp/option.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -539,56 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Firma/EventsData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1663#1664#0" expanded="true" />
-            <element signature="e#1694#1695#0" expanded="true" />
-            <element signature="e#1797#1798#0" expanded="true" />
-            <element signature="e#1828#1829#0" expanded="true" />
-            <element signature="e#1736#1737#0" expanded="true" />
-            <element signature="e#1761#1762#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/PracownikData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#1458#1459#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/LoginData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/FirmyData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -601,22 +576,6 @@
             <element signature="e#894#895#0" expanded="true" />
             <element signature="e#757#758#0" expanded="true" />
             <element signature="e#791#792#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/EventData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1196#1197#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -634,114 +593,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Filtr.java">
+    <entry file="file://$PROJECT_DIR$/src/Admin/Filtr.java" />
+    <entry file="file://$PROJECT_DIR$/src/Admin/Transaction.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Load.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Add.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Clear.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Session.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Search.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Filtr.java" />
+    <entry file="file://$PROJECT_DIR$/src/Firma/FirmaFXML.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="1955">
+          <caret line="115" column="48" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Updata.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Session.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Load.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Add.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Load.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Add.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Clear.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Session.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Updata.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pracownik/Filtr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Admin/Clear.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Loginapp/LoginControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="595">
           <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -750,37 +620,227 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/AdminFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1079">
+        <state relative-caret-position="3604">
           <caret line="212" column="17" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Firma/FirmaFXML.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/PracownikData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="115" column="48" lean-forward="true" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/EventData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/LoginData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/ParentAdminControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3053#3054#0" expanded="true" />
+            <element signature="e#3095#3096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-619">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/DecAndClear.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Clear.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Load.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Updata.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Admin/AdminControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="621" column="7" selection-start-line="621" selection-start-column="7" selection-end-line="626" selection-end-column="40" />
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Updata.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/EventsData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16225#16226#0" expanded="true" />
-            <element signature="e#16267#16268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="18" lean-forward="true" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Firma/FirmaControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="37" selection-end-column="73" />
+        <state relative-caret-position="306">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Clear.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Load.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1489">
+          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Admin/Map.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Firma/Map.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Updata.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pracownik/Reboot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -789,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pracownik/WorkersControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="123" column="44" lean-forward="true" selection-start-line="123" selection-start-column="44" selection-end-line="123" selection-end-column="44" />
+        <state relative-caret-position="340">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
