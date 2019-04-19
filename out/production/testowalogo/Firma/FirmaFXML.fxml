@@ -113,7 +113,7 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab  text="Wydarzenie">
+                        <Tab text="Wydarzenie">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="806.0">
                                     <children>
@@ -159,6 +159,7 @@
                         <Button fx:id="rollback" mnemonicParsing="false" onAction="#rollback" prefHeight="26.0" prefWidth="238.0" text="Rollback" />
                         <Button fx:id="setPoint" mnemonicParsing="false" onAction="#setPoint" prefHeight="26.0" prefWidth="223.0" text="SetPoint" />
                         <Button fx:id="status" mnemonicParsing="false" onAction="#disconnecting" text="Status" />
+                  <Button fx:id="Logout" mnemonicParsing="false" onAction="#loginout" text="Wyloguj" />
                     </children>
                 </HBox>
             </children>

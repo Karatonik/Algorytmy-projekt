@@ -81,7 +81,7 @@ public class DecAndClear extends Session{
     public Button addfirma, clearfirma, loadfirma;
     @FXML
     public TableColumn<FirmyData, String> idfirmacolumn, namefirmacolumn;
-
+    //czysci pola tekstowe dla tabeli Event
     @FXML
     private void cleareventFild(ActionEvent event) {
         this.nameevent.setText("");

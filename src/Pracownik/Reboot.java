@@ -1,11 +1,14 @@
 package Pracownik;
 
+import Loginapp.LoginApp;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,6 +25,8 @@ public class Reboot {
     public final String sqlw = "SELECT * FROM Event WHERE PW='W'";
     public final String sqlp = "SELECT * FROM Event WHERE PW='P'";
     //połączenie
+    @FXML
+            public Button Logout;
     Connection conn;
     //srotowanie
     @FXML
@@ -89,6 +94,15 @@ public class Reboot {
         } catch (SQLException e) {
             System.err.println("ERROR" + e);
         }
+    }
+    @FXML
+    public void loginout(ActionEvent event) throws Exception{
+        Stage stage = (Stage) this.Logout.getScene().getWindow();
+        stage.close();
+        Stage stage1=new Stage();
+        LoginApp loginApp =new LoginApp();
+        loginApp.start(stage1);
+
     }
 
 

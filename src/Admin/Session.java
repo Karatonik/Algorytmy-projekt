@@ -1,9 +1,16 @@
 package Admin;
 
+import Loginapp.LoginApp;
+import Loginapp.LoginControler;
 import dbUtil.dbConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,13 +26,15 @@ public class Session {
     public dbConnection dc;
     //połączenie
     Connection conn;
+    @FXML
+            public Button Logout;
     //tranzakcje
     Savepoint savepoint;
     public boolean sp = false;
 
     //sesja
     @FXML
-    private  void disconnecting(ActionEvent a) {
+    public   void disconnecting(ActionEvent a) {
         if (dng) {
             try {
                 conn = dbConnection.getConnection();
@@ -49,7 +58,7 @@ public class Session {
 
     //kontrola tranzakcji
     @FXML
-    private void commit(ActionEvent a) {
+    public void commit(ActionEvent a) {
         try {
             conn.commit();
         } catch (SQLException e) {
@@ -59,7 +68,7 @@ public class Session {
     }
 
     @FXML
-    private void setPoint(ActionEvent a) {
+    public void setPoint(ActionEvent a) {
         try {
             savepoint = conn.setSavepoint();
         } catch (SQLException e) {
@@ -69,7 +78,7 @@ public class Session {
     }
 
     @FXML
-    private void rollback(ActionEvent a) {
+    public void rollback(ActionEvent a) {
         if (sp) {
             try {
                 conn.rollback(savepoint);
@@ -79,6 +88,16 @@ public class Session {
         }
 
     }
+    @FXML
+    public void loginout(ActionEvent event) throws Exception{
+        Stage stage = (Stage) this.Logout.getScene().getWindow();
+        stage.close();
+        Stage stage1=new Stage();
+        LoginApp loginApp =new LoginApp();
+        loginApp.start(stage1);
+
+    }
+
 
 
 }

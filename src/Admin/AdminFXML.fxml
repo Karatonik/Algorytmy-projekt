@@ -19,10 +19,11 @@
    <children>
       <HBox layoutX="-6.0" layoutY="677.0" prefHeight="50.0" prefWidth="1278.0">
          <children>
-            <Button fx:id="ok" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commit" prefHeight="50.0" prefWidth="254.0" text="commit" />
-            <Button fx:id="savePoint" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPoint" prefHeight="51.0" prefWidth="312.0" text="savepoint" />
+            <Button fx:id="ok" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commit" prefHeight="50.0" prefWidth="166.0" text="commit" />
+            <Button fx:id="savePoint" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPoint" prefHeight="51.0" prefWidth="256.0" text="savepoint" />
             <Button fx:id="dconnect" cancelButton="true" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#disconnecting" prefHeight="48.0" prefWidth="362.0" text="rozłącz" />
-            <Button fx:id="no" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rollback" prefHeight="51.0" prefWidth="346.0" text="rollback" />
+            <Button fx:id="no" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rollback" prefHeight="51.0" prefWidth="266.0" text="rollback" />
+            <Button fx:id="Logout" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loginout" prefHeight="51.0" prefWidth="266.0" text="Wyloguj" />
          </children>
       </HBox>
       <TabPane layoutX="-10.0" layoutY="-5.0" prefHeight="677.0" prefWidth="1286.0" tabClosingPolicy="UNAVAILABLE">
@@ -33,7 +34,7 @@
                      <children>
                         <HBox layoutX="370.0" layoutY="-4.0" prefHeight="731.0" prefWidth="1400.0">
                            <children>
-                              <TableView fx:id="workertable" prefHeight="731.0" prefWidth="958.0">
+                              <TableView fx:id="workertable" prefHeight="629.0" prefWidth="906.0">
                                 <columns>
                                   <TableColumn fx:id="idcolumn" prefWidth="85.59991455078125" text="ID" />
                                   <TableColumn fx:id="fnamecolumn" prefWidth="224.80007934570312" text="Name" />
