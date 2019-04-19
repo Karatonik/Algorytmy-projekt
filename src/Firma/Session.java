@@ -1,10 +1,12 @@
 package Firma;
 
+import Loginapp.LoginApp;
 import dbUtil.dbConnection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -30,6 +32,8 @@ public class Session {
     //Wyszkukiwarka
     @FXML
     public TextField searchWorker, searchProj, searchWyd;
+    @FXML
+    public Button Logout;
     @FXML
     public Button status;
     public dbConnection dc;
@@ -128,6 +132,15 @@ public class Session {
                 e.printStackTrace();
             }
         }
+
+    }
+    @FXML
+    public void loginout(ActionEvent event) throws Exception{
+        Stage stage = (Stage) this.Logout.getScene().getWindow();
+        stage.close();
+        Stage stage1=new Stage();
+        LoginApp loginApp =new LoginApp();
+        loginApp.start(stage1);
 
     }
 

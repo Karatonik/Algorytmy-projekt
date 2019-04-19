@@ -72,7 +72,7 @@ public class LoginControler implements Initializable {
     }
 
 
-    public void adminLogin() {
+    public  void adminLogin() {
         try {
             Stage adminStage = new Stage();
             FXMLLoader adminLoader = new FXMLLoader();
@@ -126,4 +126,6 @@ public class LoginControler implements Initializable {
             e.printStackTrace();
         }
     }
+
+
 }

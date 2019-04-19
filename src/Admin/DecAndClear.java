@@ -1,30 +1,21 @@
 package Admin;
 
 import Loginapp.option;
-import dbUtil.dbConnection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.sql.Connection;
-import java.sql.Savepoint;
-import java.util.ArrayList;
-import java.util.List;
-
-public class DecAndClear extends Session{
-    //sortowanie
+public class DecAndClear extends Session {
+    //sortowanie przyciski
     @FXML
     public TextField filterFieldWorker, filterFieldFirma, filterFieldLogin, filterFieldEvent;
+    //Wybór tabeli w bazie danych
     public final String sql = "SELECT * FROM Pracownik";
     public final String sqlev = "SELECT * FROM Event";
     public final String sqlog = "SELECT * FROM Login";
     public final String sqlfirma = "SELECT * FROM Firma";
-    //wyszukiwanie
-    public List<PracownikData> filteredWorkerList = new ArrayList<>();
-    public List<FirmyData> filteredFirmaList = new ArrayList<>();
-    public List<LoginData> filteredLoginList = new ArrayList<>();
-    public List<EventData> filteredEventList = new ArrayList<>();
+
     @FXML
     public TableView<PracownikData> workertable;
     public ObservableList<PracownikData> data;
@@ -38,12 +29,7 @@ public class DecAndClear extends Session{
     public TableView<FirmyData> firmatable;
     @FXML
     public ObservableList<FirmyData> dataf;
-
-    //zmienne
-    //Wyszkukiwarka
-    @FXML
-    public TextField searchW, searchF, searchL, searchE;
-
+    //Przeciązenia pól w pliku fxml
     //Pracownik
     @FXML
     public TextField id, fname, lname, email, idf, testl;
@@ -82,6 +68,7 @@ public class DecAndClear extends Session{
     @FXML
     public TableColumn<FirmyData, String> idfirmacolumn, namefirmacolumn;
 
+    //czysci pola tekstowe dla tabeli Event
     @FXML
     private void cleareventFild(ActionEvent event) {
         this.nameevent.setText("");
@@ -96,9 +83,20 @@ public class DecAndClear extends Session{
         this.divUser.setText("");
 
     }
+
     //czyści pola tekstowe da tabeli Firmy
     @FXML
     private void clearFirmaFild(ActionEvent event) {
         this.namefirma.setText("");
+    }
+
+    //czyszczenie pól tekstowych
+    @FXML
+    public void clearWorkerFild(ActionEvent event) {
+        this.fname.setText("");
+        this.lname.setText("");
+        this.email.setText("");
+        this.idf.setText("");
+        this.dob.setValue(null);
     }
 }
