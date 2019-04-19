@@ -13,84 +13,89 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="808.0" prefWidth="1349.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.AdminControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="726.0" prefWidth="1266.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.AdminControler">
    <children>
-      <TabPane layoutX="3.0" layoutY="4.0" prefHeight="715.0" prefWidth="1309.0" tabClosingPolicy="UNAVAILABLE">
+      <HBox layoutX="-6.0" layoutY="677.0" prefHeight="50.0" prefWidth="1278.0">
+         <children>
+            <Button fx:id="ok" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commit" prefHeight="50.0" prefWidth="254.0" text="commit" />
+            <Button fx:id="savePoint" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPoint" prefHeight="51.0" prefWidth="312.0" text="savepoint" />
+            <Button fx:id="dconnect" cancelButton="true" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#disconnecting" prefHeight="48.0" prefWidth="362.0" text="rozłącz" />
+            <Button fx:id="no" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rollback" prefHeight="51.0" prefWidth="346.0" text="rollback" />
+         </children>
+      </HBox>
+      <TabPane layoutX="-10.0" layoutY="-5.0" prefHeight="677.0" prefWidth="1286.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Pracownicy">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
                      <children>
-                        <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
+                        <HBox layoutX="370.0" layoutY="-4.0" prefHeight="731.0" prefWidth="1400.0">
                            <children>
-                              <TableView fx:id="workertable" prefHeight="778.0" prefWidth="904.0">
+                              <TableView fx:id="workertable" prefHeight="731.0" prefWidth="958.0">
                                 <columns>
                                   <TableColumn fx:id="idcolumn" prefWidth="85.59991455078125" text="ID" />
                                   <TableColumn fx:id="fnamecolumn" prefWidth="224.80007934570312" text="Name" />
-                                    <TableColumn fx:id="lnamecolumn" prefWidth="193.5999755859375" text="Last Name" />
-                                    <TableColumn fx:id="emailcolumn" prefWidth="72.00006103515625" text="Email" />
-                                    <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="180.7999267578125" text="DOB" />
-                                    <TableColumn fx:id="idfcolumn" minWidth="0.0" prefWidth="138.4000244140625" text="ID_Firmy" />
+                                    <TableColumn fx:id="lnamecolumn" prefWidth="218.0" text="Last Name" />
+                                    <TableColumn fx:id="emailcolumn" prefWidth="151.0" text="Email" />
+                                    <TableColumn fx:id="dobcolumn" minWidth="0.0" prefWidth="55.2001953125" text="DOB" />
+                                    <TableColumn fx:id="idfcolumn" minWidth="0.0" prefWidth="295.999755859375" text="ID_Firmy" />
                                 </columns>
                               </TableView>
                            </children>
                         </HBox>
-                        <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
+                        <VBox layoutX="14.0" layoutY="10.0" prefHeight="682.0" prefWidth="340.0">
                            <children>
-                              <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
-                              <TextField fx:id="fname" layoutX="10.0" layoutY="45.0" promptText="Name">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="225.0" text="Dodaj Pracowników">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets left="110.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font></Label>
+                              <TextField fx:id="fname" layoutX="10.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="315.0" promptText="Name">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="lname" layoutX="10.0" layoutY="71.0" promptText="Last Name">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <TextField fx:id="lname" layoutX="10.0" layoutY="71.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="315.0" promptText="Last Name">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="email" layoutX="10.0" layoutY="96.0" promptText="Email">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <TextField fx:id="email" layoutX="10.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="315.0" promptText="Email">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="idf" promptText="ID firmy">
-                                 <padding>
-                                    <Insets left="5.0" />
-                                 </padding>
+                              <TextField fx:id="idf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="315.0" promptText="ID firmy">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <DatePicker fx:id="dob" prefHeight="0.0" prefWidth="330.0">
+                              <DatePicker fx:id="dob" prefHeight="30.0" prefWidth="315.0" promptText="Select a date ">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </DatePicker>
-                              <Button fx:id="add" mnemonicParsing="false" onAction="#addWorker" prefHeight="0.0" prefWidth="330.0" text="Add">
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addWorker" prefHeight="30.0" prefWidth="315.0" text="Add">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="clear" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                              <Button fx:id="clear" mnemonicParsing="false" onAction="#clearWorkerFild" prefHeight="30.0" prefWidth="315.0" text="Clear">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="load" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                              <Button fx:id="load" mnemonicParsing="false" onAction="#loadWorkerData" prefHeight="30.0" prefWidth="315.0" text="Load data">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchW" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchWorker" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
+                              <TextField fx:id="filterFieldWorker" promptText="Filitr" />
                            </children>
                         </VBox>
                      </children>
@@ -99,27 +104,30 @@
           </Tab>
             <Tab text="Firmy">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="671.0" prefWidth="1407.0">
                      <children>
                         <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
                            <children>
-                              <TableView fx:id="firmatable" prefHeight="778.0" prefWidth="904.0">
+                              <TableView fx:id="firmatable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1031.0">
                                  <columns>
                                     <TableColumn fx:id="idfirmacolumn" prefWidth="526.4000244140625" text="ID" />
-                                    <TableColumn fx:id="namefirmacolumn" prefWidth="376.00006103515625" text="Name" />
+                                    <TableColumn fx:id="namefirmacolumn" prefWidth="499.0" text="Name" />
                                  </columns>
                               </TableView>
                            </children>
                         </HBox>
                         <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
                            <children>
-                              <Label prefHeight="43.0" prefWidth="249.0" text=" Dodaj firmę" />
-                              <TextField fx:id="namefirma" layoutX="10.0" layoutY="45.0" promptText="nazwa firmy">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="163.0" text=" Dodaj firmę">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets left="110.0" />
+                                 </VBox.margin></Label>
+                              <TextField fx:id="namefirma" layoutX="10.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="330.0" promptText="Nazwa firmy">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </TextField>
                               <Button fx:id="addfirma" mnemonicParsing="false" onAction="#addFirmy" prefHeight="0.0" prefWidth="330.0" text="Add">
@@ -127,17 +135,19 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="clearfirma" mnemonicParsing="false" onAction="#clearFirmaFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                              <Button fx:id="clearfirma" mnemonicParsing="false" onAction="#clearFirmaFild" prefHeight="30.0" prefWidth="330.0" text="Clear">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="loadfirma" mnemonicParsing="false" onAction="#loadFirmaData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                              <Button fx:id="loadfirma" mnemonicParsing="false" onAction="#loadFirmaData" prefHeight="30.0" prefWidth="330.0" text="Load data">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchFirma" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
                               <HBox prefHeight="100.0" prefWidth="200.0" />
+                              <TextField fx:id="filterFieldFirma" promptText="Filitr" />
                            </children>
                         </VBox>
                      </children>
@@ -150,28 +160,34 @@
                      <children>
                         <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
                            <children>
-                              <TableView fx:id="eventtable" prefHeight="778.0" prefWidth="904.0">
+                              <TableView fx:id="eventtable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="723.0" prefWidth="1029.0">
                                  <columns>
                                     <TableColumn fx:id="ideventcolumn" prefWidth="383.9999694824219" text="ID" />
-                                    <TableColumn fx:id="nameeventcolumn" prefWidth="337.60009765625" text="Name" />
-                                    <TableColumn fx:id="deventcolumn" prefWidth="181.59991455078125" text="Date" />
+                                    <TableColumn fx:id="nameeventcolumn" prefWidth="368.0" text="Name" />
+                                    <TableColumn fx:id="deventcolumn" prefWidth="275.0" text="Date" />
                                  </columns>
                               </TableView>
                            </children>
                         </HBox>
                         <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
                            <children>
-                              <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
-                              <TextField fx:id="nameevent" layoutX="10.0" layoutY="45.0" promptText="Name">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <Label prefHeight="43.0" prefWidth="249.0" text="Dodaj wydarzenie">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets left="110.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font></Label>
+                              <TextField fx:id="nameevent" layoutX="10.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="330.0" promptText="Name">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <DatePicker fx:id="devent" />
-                              <Button fx:id="addevent" mnemonicParsing="false" onAction="#addevent" prefHeight="0.0" prefWidth="330.0" text="Add">
+                              <DatePicker fx:id="devent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="330.0" promptText="Select a date">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+                                 </VBox.margin></DatePicker>
+                              <Button fx:id="addevent" mnemonicParsing="false" onAction="#addevent" prefHeight="13.0" prefWidth="330.0" text="Add">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -186,62 +202,69 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchEvent" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
+                              <TextField fx:id="filterFieldEvent" promptText="Filitr" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Logowanie">
+            <Tab onSelectionChanged="#SearchLogin" text="Logowanie">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="776.0" prefWidth="1297.0">
                      <children>
                         <HBox layoutX="370.0" layoutY="4.0" prefHeight="723.0" prefWidth="910.0">
                            <children>
-                              <TableView fx:id="loginTable" onSort="#clearLoginFild" prefHeight="778.0" prefWidth="904.0">
+                              <TableView fx:id="loginTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onSort="#clearLoginFild" prefHeight="778.0" prefWidth="1029.0">
                                  <columns>
-                                    <TableColumn fx:id="userUsercolumn" prefWidth="85.59991455078125" text="username" />
-                                    <TableColumn fx:id="passUsercolumn" prefWidth="376.0000305175781" text="password" />
-                                    <TableColumn fx:id="divUsercolumn" prefWidth="441.5999755859375" text="division" />
+                                    <TableColumn fx:id="userUsercolumn" prefWidth="274.0" text="Username" />
+                                    <TableColumn fx:id="passUsercolumn" prefWidth="358.0" text="Password" />
+                                    <TableColumn fx:id="divUsercolumn" prefWidth="393.0" text="Division" />
                                  </columns>
                               </TableView>
                            </children>
                         </HBox>
                         <VBox layoutX="4.0" layoutY="10.0" prefHeight="703.0" prefWidth="370.0">
                            <children>
-                              <Label prefHeight="43.0" prefWidth="249.0" text="Adds Studnets" />
-                              <TextField fx:id="nameUser" promptText="username">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <Label prefHeight="43.0" prefWidth="249.0" text="Dodaj użytkownika">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets left="110.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font></Label>
+                              <TextField fx:id="nameUser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="330.0" promptText="Username">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="passUser" layoutX="10.0" layoutY="45.0" promptText="password">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
+                              <TextField fx:id="passUser" layoutX="10.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="330.0" promptText="Password">
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
                                  </VBox.margin>
                               </TextField>
-                              <ComboBox fx:id="combodiv" prefWidth="150.0" promptText="Division" />
-                              <Button fx:id="addUser" mnemonicParsing="false" onAction="#addLogin" prefHeight="0.0" prefWidth="330.0" text="Add">
+                              <ComboBox fx:id="combodiv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="330.0" promptText="Division">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+                                 </VBox.margin></ComboBox>
+                              <Button fx:id="addUser" mnemonicParsing="false" onAction="#addLogin" prefHeight="30.0" prefWidth="330.0" text="Add">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="clearUser" mnemonicParsing="false" onAction="#clearLoginFild" prefHeight="13.0" prefWidth="330.0" text="Clear">
+                              <Button fx:id="clearUser" mnemonicParsing="false" onAction="#clearLoginFild" prefHeight="30.0" prefWidth="330.0" text="Clear">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="loadUser" mnemonicParsing="false" onAction="#loadLoginData" prefHeight="18.0" prefWidth="330.0" text="Load data">
+                              <Button fx:id="loadUser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadLoginData" prefHeight="30.0" prefWidth="330.0" text="Load data">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
+                              <TextField fx:id="searchL" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#SearchLogin" prefHeight="30.0" prefWidth="315.0" promptText="Wyszukaj" />
+                              <TextField fx:id="filterFieldLogin" promptText="Filitr" />
                            </children>
                         </VBox>
                      </children>
@@ -250,13 +273,5 @@
             </Tab>
         </tabs>
       </TabPane>
-      <HBox layoutX="-3.0" layoutY="713.0" prefHeight="100.0" prefWidth="1355.0">
-         <children>
-            <Button fx:id="ok" mnemonicParsing="false" onAction="#commit" text="commit" />
-            <Button fx:id="no" mnemonicParsing="false" onAction="#rollback" text="rollback" />
-            <Button fx:id="savePoint" mnemonicParsing="false" onAction="#setPoint" text="savepoint" />
-            <Button fx:id="dconnect" mnemonicParsing="false" onAction="#disconnecting" text="rozłącz" />
-         </children>
-      </HBox>
    </children>
 </AnchorPane>
