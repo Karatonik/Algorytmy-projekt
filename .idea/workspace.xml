@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach">
-      <change afterPath="$PROJECT_DIR$/src/Admin/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/Load.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/Search.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/Updata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Clear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Load.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Map.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Search.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Firma/Updata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pracownik/Reboot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Admin/AdminControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Firma/FirmaControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testowalogo/Pracownik/WorkersControler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite" afterDir="false" />
-    </list>
+    <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -432,7 +410,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14192708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -444,7 +421,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49934897" weight="0.10973937" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49414062" visible="true" weight="0.22085048" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49414062" weight="0.22085048" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39917696" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
