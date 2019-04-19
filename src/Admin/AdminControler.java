@@ -1,367 +1,168 @@
 package Admin;
+
 import Loginapp.option;
 import dbUtil.dbConnection;
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
-public class AdminControler  implements Initializable {
-Connection conn;
-    public void initialize(URL url, ResourceBundle rb){
-        this.dc=new dbConnection();
-        this.combodiv.setItems(FXCollections.observableArrayList(option.values()));
-    }
-    public AdminControler(){
+import java.net.URL;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
+import static Admin.Updata.updata;
+
+public class AdminControler extends Search implements Initializable {
+    //konstruktor
+    public AdminControler() {
         try {
-            conn=dbConnection.getConnection();
+            conn = dbConnection.getConnection();
             conn.setAutoCommit(false);
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
-
-    }
-    }
-    @FXML
-    private Button dconnect;
-    private boolean dng=false;
-    @FXML
-    private void disconnecting(ActionEvent a) {
-        if (dng){
-            try {
-                conn=dbConnection.getConnection();
-                conn.setAutoCommit(false);
-            }catch (SQLException e){
-                System.err.println("ERROR"+e);
-            }
-            dconnect.setText("Polaczono");
-dng=false;
-        }
-        else{
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                System.err.println("ERROR" + e);
-            }
-            dconnect.setText("rozłączone");
-            dng=true;
+        } catch (SQLException e) {
+            System.err.println("ERROR" + e);
 
         }
-    }
-    //Pracownik
-    @FXML
-    private TextField id;
-    @FXML
-    private TextField fname;
-    @FXML
-    private TextField lname;
-    @FXML
-    private TextField email;
-    @FXML
-    private TextField idf;
-    @FXML
-    private DatePicker dob;
-    @FXML
-    private TableView<PracownikData> workertable;
-    @FXML
-    private TableColumn<PracownikData,String> idcolumn;
-    @FXML
-    private TableColumn<PracownikData,String> fnamecolumn;
-    @FXML
-    private TableColumn<PracownikData,String> lnamecolumn;
-    @FXML
-    private TableColumn<PracownikData,String> emailcolumn;
-    @FXML
-    private TableColumn<PracownikData,String> idfcolumn;
-    @FXML
-    private Button add;
-    @FXML
-    private Button clear;
-    @FXML
-    private Button load;
-    @FXML
-    private TableColumn<PracownikData,String> dobcolumn;
-    private ObservableList<PracownikData> data;
 
-    private final String sql="SELECT * FROM Pracownik";
 
-    @FXML
-    private void loadWorkerData(ActionEvent event){
-        try {
-            this.data= FXCollections.observableArrayList();
-            ResultSet rs=conn.createStatement().executeQuery(sql);
-            while(rs.next()){
-                this.data.add(new PracownikData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
-            }
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
-        }
-        this.idcolumn.setCellValueFactory(new PropertyValueFactory("ID"));
-        this.fnamecolumn.setCellValueFactory(new PropertyValueFactory("firstName"));
-        this.lnamecolumn.setCellValueFactory(new PropertyValueFactory("lastName"));
-        this.emailcolumn.setCellValueFactory(new PropertyValueFactory("email"));
-        this.dobcolumn.setCellValueFactory(new PropertyValueFactory("DOB"));
-        this.idfcolumn.setCellValueFactory(new PropertyValueFactory("ID_Firmy"));
-        this.workertable.setItems(null);
-        this.workertable.setItems(this.data);
     }
-    @FXML
-    private void addWorker(ActionEvent event){
-        String sqlInsert="INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInsert);
-            ps.setString(1,this.fname.getText());
-            ps.setString(2,this.lname.getText());
-            ps.setString(3,this.email.getText());
-            ps.setString(4,this.dob.getEditor().getText());
-            ps.setString(5,this.idf.getText());
-            ps.execute();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+    public void initialize(URL url, ResourceBundle rb) {
+        this.dc = new dbConnection();
+        this.combodiv.setItems(FXCollections.observableArrayList(option.values()));
+        loadWorkerData();
+        loadEventData();
+        loadLoginData();
+        loadFirmaData();
+        filtrWorker();
+        filtrLogin();
+        filtrFirma();
+        filtrEvent();
     }
+    //Potrzebna metoda to edytowalnej tablicy
     @FXML
-    private  void clearWorkerFild(ActionEvent event){
-this.id.setText("");
+    public void getRow() {
+        TablePosition pos = workertable.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        TableColumn col = pos.getTableColumn();
+        String data1 = (String) col.getCellObservableValue(row).getValue();
+        System.out.println(data1);
+    }
+    //odczyt dla tabeli pracownik
+    //zapis dla tabeli pracownik
+
+    //czyszczenie pól tekstowych
+    @FXML
+    public void clearWorkerFild(ActionEvent event) {
+        this.id.setText("");
         this.fname.setText("");
         this.lname.setText("");
         this.email.setText("");
         this.idf.setText("");
         this.dob.setValue(null);
-
     }
-    //dbConnction
+    //zapis dla tabeli eventy
 
-    private dbConnection dc;
-    //Events
-@FXML
-    private TextField idevent;
-@FXML
-    private TextField nameevent;
-@FXML
-    private Button addevent;
-@FXML
-    private  Button clearevent;
-@FXML
-    private  Button loadevent;
-@FXML
-    private DatePicker devent;
-@FXML
-    private TableView<EventData> eventtable;
-    @FXML
-    private TableColumn<EventData,String> ideventcolumn;
-    @FXML
-    private TableColumn<EventData,String> nameeventcolumn;
-    @FXML
-    private TableColumn<EventData,String> deventcolumn;
-
-    private ObservableList<EventData> dataev;
-
-    private final String sqlev="SELECT * FROM Event";
-    @FXML
-    private void loadEventData(ActionEvent event){
-        try {
-            this.dataev= FXCollections.observableArrayList();
-            ResultSet rs=conn.createStatement().executeQuery(sqlev);
-            while(rs.next()){
-                this.dataev.add(new EventData(rs.getString(1),rs.getString(2),rs.getString(3)));
-            }
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
-        }
-        this.ideventcolumn.setCellValueFactory(new PropertyValueFactory("ID_Event"));
-        this.nameeventcolumn.setCellValueFactory(new PropertyValueFactory("name_Event"));
-        this.deventcolumn.setCellValueFactory(new PropertyValueFactory("Date"));
-
-        this.eventtable.setItems(null);
-        this.eventtable.setItems(this.dataev);
+    public void filtrWorker() {
+        FilteredList<PracownikData> filteredData = new FilteredList<>(data, p -> true);
+        filterFieldWorker.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (person.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getID().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getID_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getDOB().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getEmail().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<PracownikData> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(workertable.comparatorProperty());
+        workertable.setItems(sortedData);
     }
-    @FXML
-    private void addevent(ActionEvent event){
-        String sqlInserte="INSERT INTO Event(name_Event,Date) VALUES (?,?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInserte);
-            ps.setString(1,this.nameevent.getText());
-            ps.setString(2,this.devent.getEditor().getText());
-
-            ps.execute();
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+    public void filtrEvent() {
+        FilteredList<EventData> filteredData = new FilteredList<>(dataev, p -> true);
+        filterFieldEvent.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (person.getName_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getDate().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getID_Event().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<EventData> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(eventtable.comparatorProperty());
+        eventtable.setItems(sortedData);
     }
-    @FXML
-    private  void cleareventFild(ActionEvent event){
-        this.nameevent.setText("");
-        this.devent.setValue(null);
+    public void filtrFirma() {
+        FilteredList<FirmyData> filteredData = new FilteredList<>(dataf, p -> true);
+        filterFieldFirma.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (person.getNazwa_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getID_Firmy().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<FirmyData> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(firmatable.comparatorProperty());
+        firmatable.setItems(sortedData);
     }
+    public  void filtrLogin() {
+        FilteredList<LoginData> filteredData = new FilteredList<>(datalog, p -> true);
+        filterFieldLogin.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
 
-    //LOGIN
-    @FXML
-    private TextField nameUser;
-    @FXML
-    private TextField passUser;
-    @FXML
-    private TextField divUser;
-    @FXML
-    private Button addUser;
-    @FXML
-    private Button clearUser;
-    @FXML
-    private  Button loadUser;
-    @FXML
-    private ComboBox<option>combodiv;
-    @FXML
-    private TableView<LoginData> loginTable;
-    @FXML
-    private TableColumn<LoginData,String> userUsercolumn;
-    @FXML
-    private TableColumn<LoginData,String> passUsercolumn;
-    @FXML
-    private TableColumn<LoginData,String> divUsercolumn;
-
-    private ObservableList<LoginData> datalog;
-    private final String sqlog="SELECT * FROM Login";
-    @FXML
-    private void loadLoginData(ActionEvent event){
-        try {
-            this.datalog= FXCollections.observableArrayList();
-            ResultSet rs=conn.createStatement().executeQuery(sqlog);
-            while(rs.next()){
-                this.datalog.add(new LoginData(rs.getString(1),rs.getString(2),rs.getString(3)));
-            }
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
-        }
-        this.userUsercolumn.setCellValueFactory(new PropertyValueFactory("username"));
-        this.passUsercolumn.setCellValueFactory(new PropertyValueFactory("pass"));
-        this.divUsercolumn.setCellValueFactory(new PropertyValueFactory("division"));
-        this.loginTable.setItems(null);
-        this.loginTable.setItems(this.datalog);
+                if (person.getDivision().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (person.getUsername().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<LoginData> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(loginTable.comparatorProperty());
+        loginTable.setItems(sortedData);
     }
-    @FXML
-    private void addLogin(ActionEvent event){
-        String sqlInsertl="INSERT INTO Login(username,pass,division) VALUES (?,?,?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInsertl);
-            ps.setString(1,this.nameUser.getText());
-            ps.setString(2,this.passUser.getText());
-            //ps.setString(3,this.divUser.getText());
-            ps.setString(3,combodiv.getValue().toString());
-            ps.execute();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private  void clearLoginFild(ActionEvent event){
-        this.nameUser.setText("");
-        this.passUser.setText("");
-        this.divUser.setText("");
-
-    }
-
-    //Firmy
-    Savepoint savepoint;
-    @FXML
-    private Button savePoint;
-    @FXML
-    private TextField idfirma;
-    @FXML
-    private  TextField namefirma;
-    @FXML
-    private Button addfirma;
-    @FXML
-    private Button clearfirma;
-    @FXML
-    private Button loadfirma;
-    @FXML
-    private TableView<FirmyData> firmatable;
-    @FXML
-    private TableColumn<FirmyData,String> idfirmacolumn;
-    @FXML
-    private TableColumn<FirmyData,String> namefirmacolumn;
-    private ObservableList<FirmyData> dataf;
-
-    private final String sqlfirma="SELECT * FROM Firma";//
-    @FXML
-    private void loadFirmaData(ActionEvent event){
-        try {
-            this.dataf= FXCollections.observableArrayList();
-            ResultSet rs=conn.createStatement().executeQuery(sqlfirma);
-            while(rs.next()){
-                this.dataf.add(new FirmyData(rs.getString(1),rs.getString(2)));
-            }
-        }catch (SQLException e){
-            System.err.println("ERROR"+e);
-        }
-        this.idfirmacolumn.setCellValueFactory(new PropertyValueFactory("ID_Firmy"));
-        this.namefirmacolumn.setCellValueFactory(new PropertyValueFactory("Nazwa_Firmy"));
-
-        this.firmatable.setItems(null);
-        this.firmatable.setItems(this.dataf);
-    }
-    @FXML
-    private void addFirmy(ActionEvent event){
-        String sqlInsertf="INSERT INTO Firma(Nazwa_Firmy) VALUES (?) ";
-        try{
-            PreparedStatement ps=conn.prepareStatement(sqlInsertf);
-            ps.setString(1,this.namefirma.getText());
-            ps.execute();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    private  void clearFirmaFild(ActionEvent event){
-        this.namefirma.setText("");
-    }
-    //tranzakcja
-    private boolean sp=false;
-    @FXML
-    private Button ok;
-    @FXML
-    private Button no;
-    @FXML
-    private Button start;
-    @FXML
-    private void commit(ActionEvent a){
-        try {
-        conn.commit();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        sp=false;
-    }
-    @FXML
-    private void setPoint(ActionEvent a){
-            try {
-                savepoint = conn.setSavepoint();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            sp=true;
-        }
-
-    @FXML
-    private void rollback(ActionEvent a){
-        if(sp){
-        try {
-            conn.rollback(savepoint);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        }
-
-    }
-
 }
-
-
-
-

@@ -1,14 +1,17 @@
 package Loginapp;
 
 public enum option {
-    Admin,Firma,Pracownik;
-    private option(){}
+    Admin, Firma, Pracownik;
 
-    public String value(){
-        return  name();
+    option() {
     }
-    public static  option fromvalue (String v){
+
+    public static option fromvalue(String v) {
         return valueOf(v);
+    }
+
+    public String value() {
+        return name();
     }
 
 }
