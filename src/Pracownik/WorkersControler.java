@@ -1,16 +1,12 @@
 package Pracownik;
 
 import dbUtil.dbConnection;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 public class WorkersControler extends Reboot implements Initializable {
 
@@ -22,7 +18,7 @@ public class WorkersControler extends Reboot implements Initializable {
     }
 
 
-//Wyszukwinaie
+    //Wyszukwinaie
     public void filtrWyd() {
         FilteredList<EventsDataWorker> filteredData = new FilteredList<>(dataw, p -> true);
         filterFieldWyd.textProperty().addListener((observable, oldValue, newValue) -> {

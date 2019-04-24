@@ -4,7 +4,6 @@ import dbUtil.dbConnection;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.Initializable;
-
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;

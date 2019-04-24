@@ -2,7 +2,6 @@ package Firma;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
