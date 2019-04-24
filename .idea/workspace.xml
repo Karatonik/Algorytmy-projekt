@@ -7,14 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54f18d3c-f6b5-451d-889f-aff5e3a12296" name="Default Changelist" comment="Mała łatka w imortach">
-      <change beforePath="$PROJECT_DIR$/src/Admin/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/FirmaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/FirmaControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firma/Load.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firma/Load.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/LoginControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/LoginControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loginapp/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loginapp/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pracownik/WorkersControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
