@@ -1,2 +1,2 @@
-Session->Clear->Load->Add->Search->FirmaControler +Updata
+Session->Clear->Load->Add->FirmaControler +Updata
 date: EventsData,WorkerData
