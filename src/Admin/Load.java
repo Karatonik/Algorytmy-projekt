@@ -15,30 +15,30 @@ public class Load extends DecAndClear {
     @FXML
     public void loadWorkerData() {
         try {
-            this.data = FXCollections.observableArrayList();
+            this.data = FXCollections.observableArrayList(); //przełączenie na listę wsierająca fxmlcollections
             ResultSet rs = conn.createStatement().executeQuery(sql);
             while (rs.next()) {
                 this.data.add(new PracownikData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
-            }
+            }//przypisuje wartości z bazy danych do ramki
         } catch (SQLException e) {
             System.err.println("ERROR" + e);
         }
         this.workertable.setEditable(true);
         this.workertable.getSelectionModel().setCellSelectionEnabled(true);
-
+//ystawia edytowanie tebeli
         this.fnamecolumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.lnamecolumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.emailcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.dobcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.idfcolumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
+//ustawia wartośc komórki tabeli
         this.idcolumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
         this.fnamecolumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         this.lnamecolumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         this.emailcolumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         this.dobcolumn.setCellValueFactory(new PropertyValueFactory<>("DOB"));
         this.idfcolumn.setCellValueFactory(new PropertyValueFactory<>("ID_Firmy"));
-
+//zapis służący dodaniu eventu do wybranych komórek tabeli
         fnamecolumn.setOnEditCommit(event -> {
             PracownikData ufname = event.getRowValue();
             ufname.setFirstName(event.getNewValue());
@@ -61,7 +61,7 @@ public class Load extends DecAndClear {
         });
 
         workertable.setItems(null);
-        workertable.setItems(data);
+        workertable.setItems(data);//zwraca do tabeli listę data
     }
 
     //odczyt dla tabeli eventy

@@ -15,7 +15,7 @@ public class DecAndClear extends Session {
     public final String sqlev = "SELECT * FROM Event";
     public final String sqlog = "SELECT * FROM Login";
     public final String sqlfirma = "SELECT * FROM Firma";
-
+//tworzenie obiektów oblserwowalntch list oraz tabeli tableview
     @FXML
     public TableView<PracownikData> workertable;
     public ObservableList<PracownikData> data;

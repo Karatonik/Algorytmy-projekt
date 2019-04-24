@@ -8,7 +8,7 @@ public class EventData {
     private final StringProperty ID_Event;
     private final StringProperty Date;
 
-
+//Tworzy ramkę by przy liscie był łatwy dostep do danych
     public EventData(String id, String name, String date) {
         this.name_Event = new SimpleStringProperty(name);
         this.ID_Event = new SimpleStringProperty(id);

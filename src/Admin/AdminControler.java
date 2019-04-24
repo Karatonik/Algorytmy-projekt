@@ -28,7 +28,7 @@ public class AdminControler extends Add implements Initializable {
 
     }
 
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) { //metoda inicjująca okno
         this.dc = new dbConnection();
         this.combodiv.setItems(FXCollections.observableArrayList(option.values()));
         loadWorkerData();
@@ -52,11 +52,11 @@ public class AdminControler extends Add implements Initializable {
     }
 
     //metody filtrujce treśc
-    public void filtrWorker() {
-        FilteredList<PracownikData> filteredData = new FilteredList<>(data, p -> true);
+    public void filtrWorker() { //metoda  używa technologi lambda
+        FilteredList<PracownikData> filteredData = new FilteredList<>(data, p -> true); //używa obiektu filteredList by znaleśc day element w liście
         filterFieldWorker.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(person -> {
-                if (newValue == null || newValue.isEmpty()) {
+                if (newValue == null || newValue.isEmpty()) {//sprawdza czy instnieje dana wartość w iscie
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
@@ -73,9 +73,9 @@ public class AdminControler extends Add implements Initializable {
                 } else return person.getEmail().toLowerCase().contains(lowerCaseFilter);
             });
         });
-        SortedList<PracownikData> sortedData = new SortedList<>(filteredData);
+        SortedList<PracownikData> sortedData = new SortedList<>(filteredData); //tworzy posortowaną listę
         sortedData.comparatorProperty().bind(workertable.comparatorProperty());
-        workertable.setItems(sortedData);
+        workertable.setItems(sortedData); //zwraca posortowaną listę
     }
 
     public void filtrEvent() {

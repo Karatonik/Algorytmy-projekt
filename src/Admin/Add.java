@@ -10,9 +10,9 @@ public class Add extends Load {
     //metody zapisu rekordu
     @FXML
    public void addWorker(ActionEvent event) {
-        String sqlInsert = "INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?) ";
+        String sqlInsert = "INSERT INTO Pracownik(fname,lname,email,DOB,ID_Firmy) VALUES (?,?,?,?,?) "; //zapytanie w języku sql
         try {
-            PreparedStatement ps = conn.prepareStatement(sqlInsert);
+            PreparedStatement ps = conn.prepareStatement(sqlInsert); //dzięki obiektowi preparedstatment możemy w miejsca ? wstawić stringa
             ps.setString(1, this.fname.getText());
             ps.setString(2, this.lname.getText());
             ps.setString(3, this.email.getText());

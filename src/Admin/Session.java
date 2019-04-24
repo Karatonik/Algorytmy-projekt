@@ -16,7 +16,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Savepoint;
 
-public class Session {
+public class Session {//metoda słuzaca operaca na sesji
     @FXML
     public Button ok, no, start, savePoint;
     public boolean dng = false;
@@ -67,7 +67,7 @@ public class Session {
         sp = false;
     }
 
-    @FXML
+    @FXML//ustawia zapis
     public void setPoint(ActionEvent a) {
         try {
             savepoint = conn.setSavepoint();
@@ -77,7 +77,7 @@ public class Session {
         sp = true;
     }
 
-    @FXML
+    @FXML //cofnięcie
     public void rollback(ActionEvent a) {
         if (sp) {
             try {
