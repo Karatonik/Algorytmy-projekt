@@ -1,3 +1,0 @@
-
-//Session->DecAndClear->Load->Add->AdminControler          +Updata
-//Date : EventData,FirmyData,LoginData,PracownikData
