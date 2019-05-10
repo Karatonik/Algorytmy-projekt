@@ -141,7 +141,7 @@ public class SessionFunFirmController {
         stage.close();
         Stage stage1=new Stage();
         MainClass mainClass =new MainClass();
-        //MainClass.start(stage1);
+        mainClass.start(stage1);
 
     }
 

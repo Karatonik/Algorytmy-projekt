@@ -88,7 +88,7 @@ public class SessionFunAdminController {//metoda słuzaca operaca na sesji
         stage.close();
         Stage stage1 = new Stage();
         MainClass mainClass = new MainClass();
-       // MainClass.stert(stage1);
+       mainClass.start(stage1);
 
     }
 
