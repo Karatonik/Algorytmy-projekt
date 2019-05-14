@@ -1,2 +1,0 @@
-jest to taki kontener na funkcje
-mozna w nia wklepac ca³e linijki kodu.
